@@ -13,3 +13,11 @@
 .choice-buttons{
     margin-top: 60px;
 }
+.lisa-button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn-group {
+    right: 10px;
+    float: right;
+}
