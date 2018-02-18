@@ -17,7 +17,24 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.btn-group {
+.btn-group.edit-buttons{
     right: 10px;
     float: right;
 }
+.table-responsive{
+    margin-top: 60px;
+}
+#calendar{
+    font-size: 36px;
+    color: rgba(0, 0, 0, 0.54);
+}
+.card-body{
+    margin-bottom: 30px;
+}
+.btn-group.mark-buttons{
+    margin-bottom: 30px;
+}
+#mark{
+    margin-bottom: 20px;
+}
+

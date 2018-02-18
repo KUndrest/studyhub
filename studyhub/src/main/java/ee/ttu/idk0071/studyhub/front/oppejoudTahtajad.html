@@ -36,35 +36,59 @@
 </nav>
 <div class="container">
     <div class="lisa-button">
-        <button type="button" class="btn btn-outline-dark">Lisa uus tähtaeg</button>
+        <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Lisa uus tähtaeg
+        </button>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupInput">Pealkiri</label>
+                    <input type="text" class="form-control" id="formGroupInput">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupInput2">Kirjeldus</label>
+                    <input type="text" class="form-control" id="formGroupInput2">
+                </div>
+                <div class="form-group" data-provide="datepicker">
+                    <label for="dateSelect">Kuupäev </label>
+                    <input type="text" class="form-control" id="dateSelect">
+                    <div class="input-group-addon">
+                        <a href="#"><i class="material-icons" id="calendar">date_range</i></a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Lisa</button>
+            </form>
+        </div>
     </div>
     <ul class="list-group">
         <li class="list-group-item">Cras justo odio
-            <div class="btn-group" role="group">
+            <div class="btn-group edit-buttons" role="group">
                 <button type="button" class="btn btn-outline-dark">Muuda</button>
                 <button type="button" class="btn btn-outline-dark">Kustuta</button>
             </div>
         </li>
         <li class="list-group-item">Dapibus ac facilisis in
-            <div class="btn-group" role="group">
+            <div class="btn-group edit-buttons" role="group">
                 <button type="button" class="btn btn-outline-dark">Muuda</button>
                 <button type="button" class="btn btn-outline-dark">Kustuta</button>
             </div>
         </li>
         <li class="list-group-item">Morbi leo risus
-            <div class="btn-group" role="group">
+            <div class="btn-group edit-buttons" role="group">
                 <button type="button" class="btn btn-outline-dark">Muuda</button>
                 <button type="button" class="btn btn-outline-dark">Kustuta</button>
         </div>
         </li>
         <li class="list-group-item">Porta ac consectetur ac
-            <div class="btn-group" role="group">
+            <div class="btn-group edit-buttons" role="group">
                 <button type="button" class="btn btn-outline-dark">Muuda</button>
                 <button type="button" class="btn btn-outline-dark">Kustuta</button>
             </div>
         </li>
         <li class="list-group-item">Vestibulum at eros
-            <div class="btn-group" role="group">
+            <div class="btn-group edit-buttons" role="group">
                 <button type="button" class="btn btn-outline-dark">Muuda</button>
                 <button type="button" class="btn btn-outline-dark">Kustuta</button>
             </div>
