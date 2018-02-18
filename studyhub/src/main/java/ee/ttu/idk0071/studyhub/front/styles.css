@@ -1,0 +1,15 @@
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-36 { font-size: 36px; }
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+}
+.choice-buttons{ text-align:center;}
+.choice-buttons > button{
+    padding-left:50px;
+    padding-right:50px;
+    margin: 20px;
+}
+.choice-buttons{
+    margin-top: 60px;
+}
