@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/animation.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/fontello-embedded.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/fontello-ie7.css">
+    <link rel="stylesheet" type="text/css" href="fontomas/fontello-9e034558/css/fontello-ie7-codes.css">
     <title>StudyHub</title>
 </head>
 <body>
@@ -18,9 +23,71 @@
     </button>
 </nav>
 
+<div id="container">
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+    <div id="wrapper">
+        <div id="login" class="animate form">
+            <form autocomplete="on">
+                <h1>Logi sisse</h1>
+                <p>
+                    <label for="emailsignup" class="email" data-icon="e">Email: </label>
+                    <input id="emailsignup" name="emailsignup" required="required" type="email"/>
+                </p>
+                <p>
+                    <label for="password" class="password" data-icon="p">Parool: </label>
+                    <input id="password" name="password" required="required" type="password"/>
+                </p>
+                <p class="keeplogin">
+                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping"/>
+                    <label for="loginkeeping">Jäta mind sisselogituks</label>
+                </p>
+                <p class="login button">
+                    <input type="submit" value="Login"/>
+                </p>
+                <p class="change_link">
+                    Pole veel kasutajat?
+                    <a href="#toregister" class="to_register">Liitu meiega</a>
+                </p>
+            </form>
+        </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <div id="register" class="animate form">
+            <form autocomplete="on">
+                <h1>Registreeri</h1>
+                <p>
+                    <label for="fullnamesignup" class="fullname" data-icon="u">Ees- ja perenimi: </label>
+                    <input id="fullnamesignup" name="fullnamesignup" required="required" type="text"/>
+                </p>
+                <p>
+                    <label for="codesignup" class="studentcode" data-icon="c">Martikli number: </label>
+                    <input id="codesignup" name="codesignup" required="required"  type="number" minlength="6" maxlength="6"/>
+                </p>
+                <p>
+                    <label for="emailsignup" class="email" data-icon="e">Email: </label>
+                    <input id="emailsignup" name="emailsignup" required="required" type="email"/>
+                </p>
+                <p>
+                    <label for="passwordsignup" class="password" data-icon="p">Parool: </label>
+                    <input id="passwordsignup" name="passwordsignup" required="required" type="password"/>
+                </p>
+                <p>
+                    <label for="passwordsignup_confirm" class="password" data-icon="p">Palun kinnitage oma parool: </label>
+                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"/>
+                </p>
+                <p class="signin button">
+                    <input type="submit" value="Sign up"/>
+                </p>
+                <p class="change_link">
+                    Kasutaja olemas?
+                    <a href="#tologin" class="to_register"> Logi sisse </a>
+                </p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
