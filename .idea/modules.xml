@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../aurelia/aurelia.iml" filepath="$PROJECT_DIR$/../aurelia/aurelia.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/studyhub.iml" filepath="$PROJECT_DIR$/.idea/studyhub.iml" />
     </modules>
   </component>
