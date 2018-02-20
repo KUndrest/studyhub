@@ -18,7 +18,17 @@
         <ul class="navbar-nav ml-auto">
             <li><a href="tudengHinded.html"  class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
             <li><a href="tudengTahtajad.html"  class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
-            <li><a href="#"><i class="material-icons md-36 md-dark">account_circle</i></a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="icon-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons md-36 md-dark">account_circle</i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Minu andmed</a>
+                        <a class="dropdown-item" href="#">Logi välja</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
