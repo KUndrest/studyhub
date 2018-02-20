@@ -26,7 +26,7 @@
                         <a class="dropdown-item" href="#">Aine 2</a>
                         <a class="dropdown-item" href="#">Aine 3</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Lisa uus aine</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#newSubject">Lisa uus aine</a>
                     </div>
                 </div>
             </li>
@@ -42,6 +42,28 @@
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="modal fade" id="newSubject" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newSubjectLabel">Lisa aine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="mark" placeholder="Aine nimetus">
+                        <input class="form-control" type="text" placeholder="Aine kood">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
+                    <button type="button" class="btn btn-secondary">Lisa</button>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="container">
