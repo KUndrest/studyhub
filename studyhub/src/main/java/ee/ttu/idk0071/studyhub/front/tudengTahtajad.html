@@ -18,27 +18,66 @@
         <ul class="navbar-nav ml-auto">
             <a href="tudengHinded.html"  class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a>
             <a href="tudengTahtajad.html"  class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a>
-            <li class="nav-item dropdown">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vali aine
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Aine 1</a>
-                        <a class="dropdown-item" href="#">Aine 2</a>
-                        <a class="dropdown-item" href="#">Aine 3</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Lisa uus aine</a>
-                    </div>
-                </div>
-            </li>
             <li><a href="#"><i class="material-icons md-36 md-dark">account_circle</i></a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
     <a href="tudengAvaleht.html"  class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
-
+    <div class="row">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-secondary">Aeg</button>
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Aine
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="#">Aine 1</a>
+                <a class="dropdown-item" href="#">Aine 2</a>
+            </div>
+        </div>
+    </div>
+    </div>
+<ul class="list-group">
+    <li class="list-group-item">Cras justo odio
+    </li>
+    <li class="list-group-item">Dapibus ac facilisis in
+    </li>
+    <li class="list-group-item">Morbi leo risus
+    </li>
+    <li class="list-group-item">Porta ac consectetur ac
+    </li>
+    <li class="list-group-item">Vestibulum at eros
+    </li>
+</ul>
+    <div class="lisa-button">
+        <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Lisa uus tähtaeg
+        </button>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupInput">Pealkiri</label>
+                    <input type="text" class="form-control" id="formGroupInput">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupInput2">Kirjeldus</label>
+                    <input type="text" class="form-control" id="formGroupInput2">
+                </div>
+                <div class="form-group" data-provide="datepicker">
+                    <label for="dateSelect">Kuupäev </label>
+                    <input type="text" class="form-control" id="dateSelect">
+                    <div class="input-group-addon">
+                        <a href="#"><i class="material-icons" id="calendar">date_range</i></a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Lisa</button>
+            </form>
+        </div>
+    </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

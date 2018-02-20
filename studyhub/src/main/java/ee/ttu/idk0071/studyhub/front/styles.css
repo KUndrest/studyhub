@@ -41,4 +41,16 @@
     margin-top: 20px;
     font-size: 14px;
 }
-
+.selectpicker.form-control{
+    margin-top: 30px;
+}
+.btn.btn-outline-secondary{
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.material-icons.md-36.md-dark{
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
