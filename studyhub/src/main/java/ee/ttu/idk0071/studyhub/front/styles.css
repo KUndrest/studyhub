@@ -3,14 +3,29 @@
 .navbar-nav > li{
     padding-right:30px;
 }
+.container {
+    padding-top: 60px;
+}
+.panel-login>.panel-heading a{
+    color: #666;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 100px;
+}
+.panel-login>.panel-heading a.active{
+    color: lightskyblue;
+    font-size: 18px;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+    text-decoration: underline;
+    color: #666;
+}
 .choice-buttons{ text-align:center;}
 .choice-buttons > button{
     padding-left:50px;
     padding-right:50px;
     margin: 20px;
-}
-.choice-buttons{
-    margin-top: 60px;
 }
 .lisa-button{
     margin-top: 20px;
@@ -37,7 +52,6 @@
     margin-bottom: 20px;
 }
 #back-button{
-    margin-top: 20px;
     font-size: 14px;
 }
 .selectpicker.form-control{
