@@ -3,6 +3,9 @@
 .navbar-nav > li{
     padding-right:30px;
 }
+/*body{
+    background-image: url("background.jpg");
+}*/
 .container {
     padding-top: 60px;
 }
@@ -21,11 +24,15 @@
     text-decoration: underline;
     color: #666;
 }
-.choice-buttons{ text-align:center;}
+.choice-buttons{
+    text-align:center;
+
+}
 .choice-buttons > button{
     padding-left:50px;
     padding-right:50px;
     margin: 20px;
+    background-color: white;
 }
 .lisa-button{
     margin-top: 20px;
