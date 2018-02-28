@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
+           <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vali aine
@@ -58,7 +58,7 @@
                             <input class="form-control" type="text" placeholder="Aine nimetus">
                         </p>
                         <p>
-                            <input class="form-control" type="text" placeholder="Ainekood">
+                        <input class="form-control" type="text" placeholder="Ainekood">
                         </p>
                     </div>
                 </div>
@@ -70,24 +70,67 @@
         </div>
     </div>
 </nav>
-
 <div class="container">
-    <div class="pealkiri">
-        <h2>
-            Ained
-        </h2>
+    <a href="oppejoudAvaleht.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <div class="lisa-button">
+        <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Lisa uus tähtaeg
+        </button>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupInput">Pealkiri</label>
+                    <input type="text" class="form-control" id="formGroupInput">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupInput2">Kirjeldus</label>
+                    <input type="text" class="form-control" id="formGroupInput2">
+                </div>
+                <div class="form-group" data-provide="datepicker">
+                    <label for="dateSelect">Kuupäev </label>
+                    <input type="text" class="form-control" id="dateSelect">
+                    <div class="input-group-addon">
+                        <a href="#"><i class="material-icons" id="calendar">date_range</i></a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Lisa</button>
+            </form>
+        </div>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">Aine 1</li>
-        <li class="list-group-item">Aine 2</li>
-        <li class="list-group-item">Aine 3</li>
-        <li class="list-group-item">Aine 4</li>
-        <li class="list-group-item">Aine 5</li>
+        <li class="list-group-item">Cras justo odio
+            <div class="btn-group edit-buttons" role="group">
+                <button type="button" class="btn btn-outline-dark">Muuda</button>
+                <button type="button" class="btn btn-outline-dark">Kustuta</button>
+            </div>
+        </li>
+        <li class="list-group-item">Dapibus ac facilisis in
+            <div class="btn-group edit-buttons" role="group">
+                <button type="button" class="btn btn-outline-dark">Muuda</button>
+                <button type="button" class="btn btn-outline-dark">Kustuta</button>
+            </div>
+        </li>
+        <li class="list-group-item">Morbi leo risus
+            <div class="btn-group edit-buttons" role="group">
+                <button type="button" class="btn btn-outline-dark">Muuda</button>
+                <button type="button" class="btn btn-outline-dark">Kustuta</button>
+        </div>
+        </li>
+        <li class="list-group-item">Porta ac consectetur ac
+            <div class="btn-group edit-buttons" role="group">
+                <button type="button" class="btn btn-outline-dark">Muuda</button>
+                <button type="button" class="btn btn-outline-dark">Kustuta</button>
+            </div>
+        </li>
+        <li class="list-group-item">Vestibulum at eros
+            <div class="btn-group edit-buttons" role="group">
+                <button type="button" class="btn btn-outline-dark">Muuda</button>
+                <button type="button" class="btn btn-outline-dark">Kustuta</button>
+            </div>
+        </li>
     </ul>
-    <div class="choice-buttons">
-        <button type="button" class="btn btn-outline-dark"><a href="oppejoudTahtajad.html">Tähtajad</a></button>
-        <button type="button" class="btn btn-outline-dark"><a href="oppejoudHinded.html">Hinded</a></button>
-    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
