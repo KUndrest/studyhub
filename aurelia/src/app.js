@@ -1,9 +1,6 @@
 import 'bootstrap';
 
 export class App {
-  constructor() {
-    this.message = 'Tere!';
-  }
   configureRouter(config, router) {
     this.router = router;
     config.title = 'StudyHub';
