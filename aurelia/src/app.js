@@ -1,4 +1,4 @@
-import 'bootstrap';
+import 'bootsrap';
 
 export class App {
   configureRouter(config, router) {
