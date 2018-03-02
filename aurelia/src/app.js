@@ -5,10 +5,10 @@ export class App {
     this.router = router;
     config.title = 'StudyHub';
     config.map([
-      { route: ['', 'home'],       name: 'home',       moduleId: 'home/index' },
+      { route: ['', 'home'],       name: 'home',       moduleId: 'home/index', nav: true },
       { route: 'lector',            name: 'lector',      moduleId: 'lector/lector', nav: true, title: 'Õppejõud' },
       { route: 'users/:id/detail', name: 'userDetail', moduleId: 'users/detail' },
-      { route: 'files/*path',      name: 'files',      moduleId: 'files/index', nav: 0,    title: 'Files', href:'#files' }
+      { route: 'files/*path',      name: 'files',      moduleId: 'files/index', nav: 0,    title: 'Files', href: '#files' }
     ]);
   }
 }

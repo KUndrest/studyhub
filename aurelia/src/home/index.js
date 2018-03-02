@@ -1,8 +1,7 @@
 export class Home {
-    constructor(){
-        this.message = "StudyHub"
-    }
-
+  constructor() {
+    this.message = 'StudyHub';
+  }
     /*
     $(function() {
         $('#login-form-link').click(function(e) {

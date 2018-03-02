@@ -1,26 +1,26 @@
-import {HttpClient, json} from 'aurelia-fetch-client'
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 export class lector {
 
-  userData = {}
+  subjectData = {}
 
-  constructor(){
-    this.subject = "Aine nimetus"
-    this.code = "Ainekood"
+  constructor() {
+    this.subject = '';
+    this.code = '';
   }
-  addSubject(){
+  addSubject() {
     let client = new HttpClient();
 
     client.fetch('http://localhost:9000/subjects/add', {
-      'method': "POST",
-      'body': json(userData)
+      'method': 'POST',
+      'body': json(this.subjectData)
     })
       .then(response => response.json())
       .then(data => {
-        console.log("Server saatis " + data.subject);
+        console.log('Server saatis' + data.subject);
       });
 
-    console.log("TEHTUD")
+    console.log('TEHTUD');
   }
 }
 

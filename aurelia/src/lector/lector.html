@@ -75,10 +75,10 @@
       <div class="form-group">
         <form submit.delegate = "addSubject()">
           <p>
-            <input class="form-control" id="subject" type="text" placeholder="Aine nimetus">
+            <input class="form-control" id="subject" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
           </p>
           <p>
-            <input class="form-control" id="code" type="text" placeholder="Ainekood">
+            <input class="form-control" id="code" type="text" name="code" placeholder="Ainekood" value.bind="subjectData.code">
           </p>
           <div class="modal-footer">
             <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Sulge">
