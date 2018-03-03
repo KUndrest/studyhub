@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
     <title>StudyHub</title>
 </head>
 <body>
@@ -16,8 +16,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li><a href="tudengHinded.html"  class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
-            <li><a href="tudengTahtajad.html" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+            <li><a href="tudengHinded.html" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
+            <li><a href="tudengTahtajad.html"  class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
             <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,50 +80,58 @@
 <div class="container">
     <a href="tudengAvaleht.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="selection">
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <button type="button" class="btn btn-secondary">Aeg</button>
-            <div class="btn-group" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Aine
-                </button>
-                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Aine 1</a>
-                    <a class="dropdown-item" href="#">Aine 2</a>
-                </div>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-secondary">Aeg</button>
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Aine
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="#">Aine 1</a>
+                <a class="dropdown-item" href="#">Aine 2</a>
             </div>
         </div>
     </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Hinne</th>
-            <th>Aine</th>
-            <th>Selgitus</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th>10 p</th>
-            <td>Süsteemianalüüs</td>
-            <td>Eksami lisapunktide vahetest</td>
-        </tr>
-        <tr>
-            <th>3</th>
-            <td>Organisatsiooni juhtimine</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>48p</th>
-            <td>Süsteemianalüüs</td>
-            <td>Kontrolltöö</td>
-        </tr>
-        <tr>
-            <th>7p</th>
-            <td>Ettevõtluse alused</td>
-            <td>Presentatsioon äriideest</td>
-        </tr>
-        </tbody>
-    </table>
+    </div>
+<ul class="list-group">
+    <li class="list-group-item">Cras justo odio
+    </li>
+    <li class="list-group-item">Dapibus ac facilisis in
+    </li>
+    <li class="list-group-item">Morbi leo risus
+    </li>
+    <li class="list-group-item">Porta ac consectetur ac
+    </li>
+    <li class="list-group-item">Vestibulum at eros
+    </li>
+</ul>
+    <div class="lisa-button">
+        <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Lisa uus tähtaeg
+        </button>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupInput">Pealkiri</label>
+                    <input type="text" class="form-control" id="formGroupInput">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupInput2">Kirjeldus</label>
+                    <input type="text" class="form-control" id="formGroupInput2">
+                </div>
+                <div class="form-group" data-provide="datepicker">
+                    <label for="dateSelect">Kuupäev </label>
+                    <input type="text" class="form-control" id="dateSelect">
+                    <div class="input-group-addon">
+                        <a href="#"><i class="material-icons" id="calendar">date_range</i></a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Lisa</button>
+            </form>
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
