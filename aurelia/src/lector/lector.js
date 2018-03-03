@@ -1,4 +1,5 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
+import 'bootstrap';
 
 export class lector {
 

@@ -7,6 +7,7 @@ export class App {
     config.map([
       { route: ['', 'home'],       name: 'home',       moduleId: 'home/index', nav: true },
       { route: 'lector',            name: 'lector',      moduleId: 'lector/lector', nav: true, title: 'Õppejõud' },
+      { route: 'student',            name: 'student',      moduleId: 'student/tudengAvaleht', nav: true, title: 'Tudeng' },
       { route: 'users/:id/detail', name: 'userDetail', moduleId: 'users/detail' },
       { route: 'files/*path',      name: 'files',      moduleId: 'files/index', nav: 0,    title: 'Files', href: '#files' }
     ]);

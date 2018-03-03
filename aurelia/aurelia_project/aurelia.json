@@ -90,10 +90,8 @@
           {
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
-            "main": "js/bootstrap.bundle.min",
-            "deps": [
-              "jquery"
-            ],
+            "main": "js/bootstrap.min",
+            "deps": ["jquery"],
             "exports": "$",
             "resources": [
               "css/bootstrap.css"
