@@ -39,7 +39,6 @@
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
             "env": "dev"
           },
-          "node_modules/popper.js/dist/umd/popper.min.js",
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
@@ -53,6 +52,7 @@
             "path": "../node_modules/aurelia-fetch-client/dist/amd",
             "resources": []
           },
+          "aurelia-fetch-client",
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
