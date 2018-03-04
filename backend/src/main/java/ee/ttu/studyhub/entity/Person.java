@@ -9,15 +9,21 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class People {
+public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
     private String email;
     private String password;
     private String name;
     private String studentCode;
 
-    @OneToMany(mappedBy ="user", cascade= CascadeType.ALL)
+    @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
     List<Subject> subjects;
+
+    @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
+    List<Post> posts;
+
+    @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
+    List<Score> scores;
 }
