@@ -1,7 +1,6 @@
 <template>
   <require from="bootstrap/css/bootstrap.css"></require>
-  <require from=" src/styles.css"></require>
-
+  <require from="./styles.css"></require>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="lector.html">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,14 +62,13 @@
       </div>
     </div>
   </nav>
-
   <div class="container">
     <div class="pealkiri">
       <h2>
         Ained
       </h2>
     </div>
-    // näitevormi ALGUS
+
     <div class="modal-body">
       <div class="form-group">
         <form submit.delegate = "addSubject()">
@@ -87,7 +85,6 @@
         </form>
       </div>
     </div>
-    //näitevormi LÕPP
 
     <ul class="list-group">
       <li class="list-group-item">Aine 1</li>
@@ -97,8 +94,8 @@
       <li class="list-group-item">Aine 5</li>
     </ul>
     <div class="choice-buttons">
-      <button type="button" class="btn btn-outline-dark"><a href="oppejoudTahtajad.html">Tähtajad</a></button>
-      <button type="button" class="btn btn-outline-dark"><a href="oppejoudHinded.html">Hinded</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="posts.html">Tähtajad</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="scores.html">Hinded</a></button>
     </div>
   </div>
 </template>

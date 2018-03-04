@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../styles.css">
-    <title>StudyHub</title>
-</head>
-<body>
+<template>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="lector.html">StudyHub</a>
+    <a class="navbar-brand" href="student.html">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-           <li class="nav-item dropdown">
+            <li><a href="scores.html" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
+            <li><a href="posts.html" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+            <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vali aine
+                        Ained
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Aine 1</a>
                         <a class="dropdown-item" href="#">Aine 2</a>
                         <a class="dropdown-item" href="#">Aine 3</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#newSubject">Lisa uus aine</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#registerSubject">Registreeri ainele</a>
                     </div>
                 </div>
             </li>
@@ -43,11 +35,11 @@
             </li>
         </ul>
     </div>
-    <div class="modal fade" id="newSubject" role="dialog">
+    <div class="modal fade" id="registerSubject" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Lisa aine</h5>
+                    <h5 class="modal-title" id="registerSubjectLabel">Lisa aine</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -55,23 +47,54 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <p>
-                            <input class="form-control" type="text" placeholder="Aine nimetus">
+                            <input class="form-control" type="text" placeholder="Otsi..">
                         </p>
-                        <p>
-                        <input class="form-control" type="text" placeholder="Ainekood">
-                        </p>
+                        <div>
+                            <input type="checkbox" id="aine1" name="aine1" value="aine1">
+                            <label for="aine1">Aine1</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="aine2" name="aine2" value="aine2">
+                            <label for="aine2">Aine2</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
-                    <button type="button" class="btn btn-secondary">Lisa</button>
+                    <button type="button" class="btn btn-secondary">Registreeri</button>
                 </div>
             </div>
         </div>
     </div>
 </nav>
 <div class="container">
-    <a href="lector.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <a href="student.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <div class="selection">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-secondary">Aeg</button>
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Aine
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="#">Aine 1</a>
+                <a class="dropdown-item" href="#">Aine 2</a>
+            </div>
+        </div>
+    </div>
+    </div>
+<ul class="list-group">
+    <li class="list-group-item">Cras justo odio
+    </li>
+    <li class="list-group-item">Dapibus ac facilisis in
+    </li>
+    <li class="list-group-item">Morbi leo risus
+    </li>
+    <li class="list-group-item">Porta ac consectetur ac
+    </li>
+    <li class="list-group-item">Vestibulum at eros
+    </li>
+</ul>
     <div class="lisa-button">
         <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Lisa uus tähtaeg
@@ -99,41 +122,5 @@
             </form>
         </div>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">Cras justo odio
-            <div class="btn-group edit-buttons" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-            </div>
-        </li>
-        <li class="list-group-item">Dapibus ac facilisis in
-            <div class="btn-group edit-buttons" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-            </div>
-        </li>
-        <li class="list-group-item">Morbi leo risus
-            <div class="btn-group edit-buttons" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-        </div>
-        </li>
-        <li class="list-group-item">Porta ac consectetur ac
-            <div class="btn-group edit-buttons" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-            </div>
-        </li>
-        <li class="list-group-item">Vestibulum at eros
-            <div class="btn-group edit-buttons" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-            </div>
-        </li>
-    </ul>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+</template>

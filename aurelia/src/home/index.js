@@ -1,4 +1,4 @@
-export class Home {
+export class home {
   constructor() {
     this.message = 'StudyHub';
   }
