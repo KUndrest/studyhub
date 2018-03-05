@@ -64,7 +64,6 @@
         Ained
       </h2>
     </div>
-
         <form submit.delegate = "addSubject()">
           <p>
             <input class="form-control" id="subject" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
@@ -76,7 +75,6 @@
             <input type="submit" class="btn btn-secondary" value="Lisa">
           </div>
         </form>
-
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item">${subject.subject} ${subject.code}</li>
     </ul>

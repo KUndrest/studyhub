@@ -84,16 +84,8 @@
     </div>
     </div>
 <ul class="list-group">
-    <li class="list-group-item">Cras justo odio
-    </li>
-    <li class="list-group-item">Dapibus ac facilisis in
-    </li>
-    <li class="list-group-item">Morbi leo risus
-    </li>
-    <li class="list-group-item">Porta ac consectetur ac
-    </li>
-    <li class="list-group-item">Vestibulum at eros
-    </li>
+  <li  repeat.for="post of postList" class="list-group-item">${post.title}
+  </li>
 </ul>
     <div class="lisa-button">
         <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
