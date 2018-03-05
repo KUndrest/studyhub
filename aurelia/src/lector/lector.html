@@ -1,6 +1,4 @@
 <template>
-  <require from="bootstrap/css/bootstrap.css"></require>
-  <require from="./styles.css"></require>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="lector.html">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,13 +83,8 @@
         </form>
       </div>
     </div>
-
     <ul class="list-group">
-      <li class="list-group-item">Aine 1</li>
-      <li class="list-group-item">Aine 2</li>
-      <li class="list-group-item">Aine 3</li>
-      <li class="list-group-item">Aine 4</li>
-      <li class="list-group-item">Aine 5</li>
+      <li class="list-group-item" repeat.for="subject of subjectList">${subject.subject} ${subject.code}</li>
     </ul>
     <div class="choice-buttons">
       <button type="button" class="btn btn-outline-dark"><a href="posts.html">Tähtajad</a></button>

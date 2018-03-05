@@ -7,13 +7,11 @@ export class lector {
   subjectList = [];
 
   constructor() {
-    this.subject = '';
-    this.code = '';
   }
   activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:9000/subjects')
+    client.fetch('http://localhost:8080/subjects')
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
@@ -21,7 +19,7 @@ export class lector {
   addSubject() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:9000/subjects/add', {
+    client.fetch('http://localhost:8080/subjects/add', {
       'method': 'POST',
       'body': json(this.subjectData)
     })

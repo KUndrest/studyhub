@@ -48,23 +48,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                      <form>
                         <p>
-                            <input class="form-control" type="text" placeholder="Otsi..">
+                          <input class="form-control" type="text" placeholder="Otsi..">
                         </p>
-                        <div>
-                            <input type="checkbox" id="aine1" name="aine1" value="aine1">
-                            <label for="aine1">Aine1</label>
+                        <ul class="list-group">
+                          <li class="list-group-item" repeat.for="subject of subjectList">
+                            <input type="checkbox" id="aine1" name="aine1">
+                            <label for="aine1">${subject.subject} ${subject.code}</label>
+                          </li>
+                        </ul>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Sulge">
+                          <input type="submit" class="btn btn-secondary" value="Registreeri">
                         </div>
-                        <div>
-                            <input type="checkbox" id="aine2" name="aine2" value="aine2">
-                            <label for="aine2">Aine2</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
-                    <button type="button" class="btn btn-secondary">Registreeri</button>
-                </div>
+                      </form>
             </div>
         </div>
     </div>
