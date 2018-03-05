@@ -3,7 +3,7 @@ import 'bootstrap';
 
 export class lector {
 
-  subjectData = {}
+  subjectData = {};
   subjectList = [];
 
   constructor() {

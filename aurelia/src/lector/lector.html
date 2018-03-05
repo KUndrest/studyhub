@@ -11,10 +11,8 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Vali aine
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Aine 1</a>
-              <a class="dropdown-item" href="#">Aine 2</a>
-              <a class="dropdown-item" href="#">Aine 3</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a repeat.for="subject of subjectList" class="dropdown-item" href="#">${subject.subject} ${subject.code}</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" data-toggle="modal" data-target="#newSubject">Lisa uus aine</a>
             </div>
@@ -67,8 +65,6 @@
       </h2>
     </div>
 
-    <div class="modal-body">
-      <div class="form-group">
         <form submit.delegate = "addSubject()">
           <p>
             <input class="form-control" id="subject" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
@@ -77,12 +73,10 @@
             <input class="form-control" id="code" type="text" name="code" placeholder="Ainekood" value.bind="subjectData.code">
           </p>
           <div class="modal-footer">
-            <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Sulge">
             <input type="submit" class="btn btn-secondary" value="Lisa">
           </div>
         </form>
-      </div>
-    </div>
+
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item">${subject.subject} ${subject.code}</li>
     </ul>

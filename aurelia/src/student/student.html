@@ -13,10 +13,8 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Ained
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Aine 1</a>
-                        <a class="dropdown-item" href="#">Aine 2</a>
-                        <a class="dropdown-item" href="#">Aine 3</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <a repeat.for="subject of subjectList" class="dropdown-item" href="#">${subject.subject} ${subject.code}</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" data-toggle="modal" data-target="#registerSubject">Registreeri ainele</a>
                     </div>
