@@ -1,5 +1,5 @@
-<template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<template xmlns="http://www.w3.org/1999/html">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="student.html">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,8 +54,8 @@
                         </p>
                         <ul class="list-group">
                           <li class="list-group-item" repeat.for="subject of subjectList">
-                            <input type="checkbox" id="aine1" name="aine1">
-                            <label for="aine1">${subject.subject} ${subject.code}</label>
+                            <input type="checkbox" id="aine" name="aine">
+                            <label for="aine">${subject.subject} ${subject.code}</label>
                           </li>
                         </ul>
                         <div class="modal-footer">
@@ -63,11 +63,12 @@
                           <input type="submit" class="btn btn-secondary" value="Registreeri">
                         </div>
                       </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</nav>
-
+  </nav>
   <div class ="container">
     <div class ="row">
         <div class ="col-lg-8">
@@ -153,6 +154,7 @@
                 </tbody>
             </table>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </template>
