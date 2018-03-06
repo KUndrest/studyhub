@@ -1,72 +1,70 @@
-<template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="student.html">StudyHub</a>
+<template bindable="router">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" route-href="route: student">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li><a href="scores.html" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
-            <li><a href="posts.html" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
-            <li class="nav-item dropdown">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ained
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Aine 1</a>
-                        <a class="dropdown-item" href="#">Aine 2</a>
-                        <a class="dropdown-item" href="#">Aine 3</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#registerSubject">Registreeri ainele</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="dropdown">
-                    <button class="icon-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons md-36 md-dark">account_circle</i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Minu andmed</a>
-                        <a class="dropdown-item" href="#">Logi välja</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+      <ul class="navbar-nav ml-auto">
+        <li><a route-href="route: studentscores" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
+        <li><a route-href="route: studentposts" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+        <li class="nav-item dropdown">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ained
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a repeat.for="subject of subjectList" class="dropdown-item" href="#">${subject.subject} ${subject.code}</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" data-toggle="modal" data-target="#registerSubject">Registreeri ainele</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="icon-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons md-36 md-dark">account_circle</i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Minu andmed</a>
+              <a class="dropdown-item" href="#">Logi välja</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="modal fade" id="registerSubject" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerSubjectLabel">Lisa aine</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <p>
-                            <input class="form-control" type="text" placeholder="Otsi..">
-                        </p>
-                        <div>
-                            <input type="checkbox" id="aine1" name="aine1" value="aine1">
-                            <label for="aine1">Aine1</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="aine2" name="aine2" value="aine2">
-                            <label for="aine2">Aine2</label>
-                        </div>
-                    </div>
-                </div>
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerSubjectLabel">Lisa aine</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <form>
+                <p>
+                  <input class="form-control" type="text" placeholder="Otsi..">
+                </p>
+                <ul class="list-group">
+                  <li class="list-group-item" repeat.for="subject of subjectList">
+                    <input type="checkbox" id="aine" name="aine">
+                    <label for="aine">${subject.subject} ${subject.code}</label>
+                  </li>
+                </ul>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
-                    <button type="button" class="btn btn-secondary">Registreeri</button>
+                  <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Sulge">
+                  <input type="submit" class="btn btn-secondary" value="Registreeri">
                 </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</nav>
+  </nav>
 <div class="container">
     <a href="student.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="selection">
@@ -77,8 +75,7 @@
                     Aine
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Aine 1</a>
-                    <a class="dropdown-item" href="#">Aine 2</a>
+                    <a repeat.for="subject of subjectList" class="dropdown-item" href="#">${subject.subject} ${subject.code}</a>
                 </div>
             </div>
         </div>
