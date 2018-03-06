@@ -5,6 +5,7 @@ export class lector {
   subjectData = {};
   subjectList = [];
 
+
   constructor() {
   }
   activate() {
