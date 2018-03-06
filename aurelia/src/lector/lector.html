@@ -6,6 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
+        <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a></li>
+        <li><a route-href="route: lectorposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Kodused ülesanded</a></li>
         <li class="nav-item dropdown">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,9 +81,5 @@
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item">${subject.subject} ${subject.code}</li>
     </ul>
-    <div class="choice-buttons">
-      <button type="button" class="btn btn-outline-dark"><a route-href="route: lectorposts">Tähtajad</a></button>
-      <button type="button" class="btn btn-outline-dark"><a route-href="route: lectorscores">Hinded</a></button>
-    </div>
   </div>
 </template>
