@@ -2,7 +2,6 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
 
 export class lector {
-
   subjectData = {};
   subjectList = [];
 
@@ -15,7 +14,6 @@ export class lector {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
-
   addSubject() {
     let client = new HttpClient();
 
@@ -25,10 +23,8 @@ export class lector {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.subject);
+        console.log('Server saatis' + data.post);
       });
-
-    console.log('TEHTUD');
   }
 }
 

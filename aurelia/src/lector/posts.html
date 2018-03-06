@@ -1,12 +1,14 @@
-<template>
+<template bindable="router">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="lector.html">StudyHub</a>
+    <a class="navbar-brand" route-href="route: lector">StudyHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-           <li class="nav-item dropdown">
+            <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
+            <li><a route-href="rroute:lectorposts" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+            <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button click.delegate = "getSubjects()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vali aine
@@ -42,24 +44,25 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                      <form submit.delegate = "addSubject()">
                         <p>
-                            <input class="form-control" type="text" placeholder="Aine nimetus">
+                          <input class="form-control" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
                         </p>
                         <p>
-                        <input class="form-control" type="text" placeholder="Ainekood">
+                          <input class="form-control" type="text" name="code" placeholder="Ainekood" value.bind="subjectData.code">
                         </p>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn btn-secondary" value="Lisa">
+                        </div>
+                      </form>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
-                    <button type="button" class="btn btn-secondary">Lisa</button>
                 </div>
             </div>
         </div>
     </div>
 </nav>
 <div class="container">
-    <a href="lector.html" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <a route-href="route:lector" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="lisa-button">
         <button type="button" class="btn btn-outline-dark" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Lisa uus tähtaeg

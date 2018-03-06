@@ -4,7 +4,8 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 export class post {
 
   subjectList = [];
-  postData = {}
+  postData = {};
+  subjectData = {};
   postList = [];
 
   constructor() {
@@ -23,6 +24,19 @@ export class post {
     client.fetch('http://localhost:8080/posts/add', {
       'method': 'POST',
       'body': json(this.postData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Server saatis' + data.post);
+      });
+  }
+
+  addSubject() {
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/subjects/add', {
+      'method': 'POST',
+      'body': json(this.subjectData)
     })
       .then(response => response.json())
       .then(data => {
