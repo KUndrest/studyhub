@@ -9,16 +9,28 @@ export class home {
 
   addPerson() {
     let client = new HttpClient();
+    if ($('#passwordRegister').val() === $('#confirm-password').val()) {
+      client.fetch('http://localhost:8080/person/add', {
+        'method': 'POST',
+        'body': json(this.personData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Server saatis ' + data.name);
+        });
 
-    client.fetch('http://localhost:8080/person/add', {
-      'method': 'POST',
-      'body': json(this.personData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Server saatis ' + data.name);
-      });
+      if (personData.studentCode !== null) {
+        window.location.replace('http://localhost:9000/#/student');
+      } else {
+        window.location.replace('http://localhost:9000/#/lector');
+      }
+    } else {
+      $('input#passwordRegister').addClass('is-invalid');
+      $('input#confirm-password').addClass('is-invalid');
+      $('.registrationPasswordMatch').html("Passwords don't match");
+    }
   }
+
 
     /*
     $(function() {
