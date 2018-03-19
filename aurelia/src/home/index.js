@@ -1,6 +1,23 @@
+import 'bootstrap';
+import {HttpClient, json} from 'aurelia-fetch-client';
+
 export class home {
   constructor() {
-    this.message = 'StudyHub';
+  }
+
+  personData = {};
+
+  addPerson() {
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/person/add', {
+      'method': 'POST',
+      'body': json(this.personData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Server saatis ' + data.name);
+      });
   }
 
     /*

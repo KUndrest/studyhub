@@ -1,4 +1,4 @@
-<template>
+<template bindable="router">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" route-href="route: home">StudyHub</a>
   </nav>
@@ -48,24 +48,40 @@
                     </div>
                   </div>
                 </form>
-                <form id="register-form" method="post" role="form" style="display: block;">
+                <form  submit.delegate = "addPerson()" id="register-form" role="form" style="display: block;">
                   <div class="form-group">
-                    <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Ees- ja perenimi" required>
+                    <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Ees- ja perenimi" required value.bind="personData.name">
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="emailRegister" class="form-control" placeholder="Email" required>
+                    <input type="email" name="email" id="emailRegister" class="form-control" placeholder="Email" required value.bind="personData.email">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="passwordRegister" class="form-control" placeholder="Parool" required>
+                    <input type="password" name="password" id="passwordRegister" class="form-control" placeholder="Parool" required value.bind="personData.password">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" placeholder="Kinnita parool" required>
+                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" placeholder="Kinnita parool" required onClick="checkPasswordMatch();">
                   </div>
+                  <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                  </div>
+                  <script>
+                    function checkPasswordMatch() {
+                      var password = $("#passwordRegister").val();
+                      var confirmPassword = $("#confirm-password").val();
+
+                      if (password != confirmPassword)
+                        $("#divCheckPasswordMatch").html("Passwords do not match!");
+                      else
+                        $("#divCheckPasswordMatch").html("Passwords match.");
+                    }
+                    $(document).ready(function () {
+                      $("#passwordRegister, #confirm-password").keyup(checkPasswordMatch);
+                    });
+                  </script>
                   <div class="form-group">
                     <p>Vali staatus: &nbsp&nbsp&nbsp
-                      <input type="radio" name="status" id="student" value="student" onClick="studentCheck()" checked>
+                      <input type="radio" name="status" id="student" value="student" onclick="studentCheck()" checked/>
                       <label for="student">Tudeng</label>&nbsp&nbsp
-                      <input type="radio" name="status" id="lector" value="lector" onClick="studentCheck()">
+                      <input type="radio" name="status" id="lector" value="lector" onclick="studentCheck()"/>
                       <label for="lector">Õppejõud</label>
                   </div>
                   <script>
@@ -78,7 +94,7 @@
                     }
                   </script>
                   <div class="form-group">
-                    <input type="number" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" maxlength="6" required/>
+                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" required value.bind="personData.studentCode">
                   </div>
                   <div class="form-group">
                     <div class="row">
