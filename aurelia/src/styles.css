@@ -6,15 +6,31 @@
 .container {
     padding-top: 60px;
 }
+#forms{
+  margin: auto;
+  display: block;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.panel-login {
+  border-color: #ccc;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  padding: 20px;
+}
 .panel-login>.panel-heading a{
     color: #666;
     font-weight: bold;
     font-size: 15px;
-    padding: 100px;
+    padding: 45px;
+}
+.panel-login>.panel-heading a:hover {
+  color: #cccccc;
 }
 .panel-login>.panel-heading a.active{
     color: lightskyblue;
-    font-size: 18px;
+    font-size: 20px;
 }
 .forgot-password:hover,
 .forgot-password:focus {
@@ -55,4 +71,8 @@
 .icon-button{
     background-color: transparent;
     border: none;
+}
+.modal-footer{
+  font-size: 10px;
+  margin: 100px;
 }
