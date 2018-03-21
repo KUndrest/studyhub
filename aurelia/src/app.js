@@ -3,7 +3,7 @@ export class App {
     this.router = router;
     config.title = 'StudyHub';
     config.map([
-      { route: ['', 'home'],       name: 'home',       moduleId: 'home/index', nav: true },
+      { route: ['', 'home'],       name: 'home',       moduleId: 'home/home', nav: true },
       { route: 'lector',            name: 'lector',      moduleId: 'lector/lector', nav: true, title: 'Lector' },
       { route: 'lectorposts',            name: 'lectorposts',      moduleId: 'lector/posts', nav: true, title: 'Posts' },
       { route: 'lectorscores',            name: 'lectorscores',      moduleId: 'lector/scores', nav: true, title: 'Scores' },
