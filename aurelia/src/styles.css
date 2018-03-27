@@ -76,8 +76,12 @@
   background-color: transparent;
   border: none;
 }
-.modal-footer{
+.footer{
   font-size: 10px;
-  margin: 100px;
-  background-color: ghostwhite;
+  margin-top: 100px;
+  background-color: #f8f9fa;
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  height: 60px;
 }

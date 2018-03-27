@@ -31,10 +31,12 @@ export class home {
     }
   }
   studentCheck() {
-    if (document.getElementById('student').checked) {
-      document.getElementById('studentCode').style.display = 'block';
-    } else {
+    if (!document.getElementById('student').checked) {
       document.getElementById('studentCode').style.display = 'none';
+      return true;
+    } else {
+      document.getElementById('studentCode').style.display = 'block';
+      return false;
     }
   }
   changeForm() {
