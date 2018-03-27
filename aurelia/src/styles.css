@@ -22,6 +22,7 @@
   -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
   padding: 20px;
+  background-color: ghostwhite;
 }
 .panel-login>.panel-heading a{
   color: #666;
@@ -30,7 +31,7 @@
   padding: 45px;
 }
 .panel-login>.panel-heading a:hover {
-  color: #cccccc;
+  color: #ccc;
 }
 .panel-login>.panel-heading a.active{
   color: lightskyblue;
@@ -79,9 +80,23 @@
 .footer{
   font-size: 10px;
   margin-top: 100px;
-  background-color: #f8f9fa;
-  position: absolute;
+  background-color: ghostwhite;
+  bottom: 0;
+  position: relative;
   width: 100%;
   text-align: right;
-  height: 60px;
+  height: 30px;
+  padding: 10px;
 }
+body{
+  background: url(/src/resources/background.jpg) no-repeat;
+}
+h2{
+  color: white;
+}
+
+
+/*
+kui .footeris on position relative, siis on see norm scrollimisel ja jääb lehe alla, aga kui leht on väiksem kui terve leht, siis on footer kole
+aga kui position on absoslute, siis pole see norm scrollimisel....
+*/
