@@ -64,60 +64,21 @@
 <div class="container">
     <a route-href="route:lector" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Tudeng</th>
-                <th scope="col">Kuupäev</th>
-                <th scope="col">Kuupäev</th>
-                <th scope="col">Kuupäev</th>
-                <th scope="col">Kuupäev</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Nimi Martikkel</td>
-                <td>Hinne</td>
-                <td>Punktid</td>
-                <td></td>
-                <td>Hinne</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Nimi Martikkel</td>
-                <td>Hinne</td>
-                <td>Punktid</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Nimi Martikkel</td>
-                <td>Hinne</td>
-                <td></td>
-                <td></td>
-                <td>Punktid</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Nimi Martikkel</td>
-                <td>Hinne</td>
-                <td>Punktid</td>
-                <td> <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">My clickable text</a> </td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Nimi Martikkel</td>
-                <td>Hinne</td>
-                <td>Punktid</td>
-                <td></td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
+      <table class="table table-striped" aurelia-table="data.bind: people; display-data.bind: $displayData">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>E-mail</th>
+          <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr repeat.for="person of $displayData">
+          <td>${person.name}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

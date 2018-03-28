@@ -4,11 +4,9 @@ package ee.ttu.studyhub.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -19,8 +17,12 @@ public class Score {
     private Long id;
     private String score;
     private String content;
-    private Date date;
+    private LocalDateTime created;
 
+    @PrePersist
+    public void PreSave(){
+        created = LocalDateTime.now();
+    }
     @ManyToOne
     Subject subject;
 

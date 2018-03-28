@@ -113,6 +113,14 @@
             "main": "jquery-ui",
             "deps": ["jquery"]
           },
+          {
+            "name": "aurelia-table",
+            "path": "../node_modules/au-table/dist/amd",
+            "main": "index",
+            "resources": [
+              "au-table-pagination.html"
+            ]
+          },
           "text"
         ]
       }

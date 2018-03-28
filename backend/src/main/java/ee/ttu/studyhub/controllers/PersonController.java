@@ -3,10 +3,9 @@ package ee.ttu.studyhub.controllers;
 
 import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.service.PersonService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class PersonController {
@@ -23,6 +22,15 @@ public class PersonController {
         return personService.addPerson(person);
     }
 
+    @RequestMapping(value="/person", method=RequestMethod.GET)
+    public List<Person> getAllPeople() {
+        return personService.getAllPeople();
+    }
+
+    @RequestMapping(value = "/person/{id}", method=RequestMethod.GET)
+    public Person getPerson(@PathVariable("id") long personId) {
+        return personService.getPersonById(personId);
+    }
 /*
     @Resource
     private UserService userService;

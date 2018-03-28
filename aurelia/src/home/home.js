@@ -1,5 +1,6 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import environment from './environment';
 
 export class home {
   constructor() {
@@ -10,7 +11,7 @@ export class home {
   addPerson() {
     let client = new HttpClient();
     if ($('#passwordRegister').val() === $('#confirm-password').val()) {
-      client.fetch('http://localhost:8080/person/add', {
+      client.fetch(environment.apiUrl + 'person/add', {
         'method': 'POST',
         'body': json(this.personData)
       })

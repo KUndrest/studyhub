@@ -1,25 +1,36 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import environment from './environment';
 
 export class score {
   subjectList = [];
   scoreList = [];
   scoreData = {};
   subjectData = {};
+  people = [];
 
   constructor() {
   }
+
+  getPeople(){
+    let client = new HttpClient();
+
+    return client.fetch(environment.apiUrl + 'person')
+      .then(response => response.json())
+      .then(person => this.people = person);
+  }
+
   getSubjects() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/subjects')
+    client.fetch(environment.apiUrl + 'subjects')
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
-  /*addScore() {
+  addScore() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/scores/add', {
+    client.fetch(environment.apiUrl + 'scores/add', {
       'method': 'POST',
       'body': json(this.scoreData)
     })
@@ -27,11 +38,11 @@ export class score {
       .then(data => {
         console.log('Server saatis' + data.score);
       });
-  }*/
+  }
   addSubject() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/subjects/add', {
+    client.fetch(environment.apiUrl + 'subjects/add', {
       'method': 'POST',
       'body': json(this.subjectData)
     })
@@ -43,7 +54,7 @@ export class score {
   /*activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/scores')
+    client.fetch(environment.apiUrl + 'scores')
       .then(response => response.json())
       .then(scores => this.scoreList = scores);
   }*/

@@ -1,5 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
+import environment from './environment';
 
 export class student {
   postData = {};
@@ -12,14 +13,14 @@ export class student {
   getSubjects() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/subjects')
+    client.fetch(environment.apiUrl + 'subjects')
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
   addPost() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/posts/add', {
+    client.fetch(environment.apiUrl + 'posts/add', {
       'method': 'POST',
       'body': json(this.postData)
     })
@@ -31,14 +32,14 @@ export class student {
   activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/posts')
+    client.fetch(environment.apiUrl + 'posts')
       .then(response => response.json())
       .then(posts => this.postList = posts);
   }
   /*activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/scores')
+    client.fetch(environment.apiUrl + 'scores')
       .then(response => response.json())
       .then(scores => this.scoreList = scores);
   }*/

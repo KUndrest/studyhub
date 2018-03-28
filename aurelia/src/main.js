@@ -3,6 +3,8 @@ import environment from './environment';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
+    .feature('resources')
+    .plugin('aurelia-table')
     .feature('resources');
 
   if (environment.debug) {

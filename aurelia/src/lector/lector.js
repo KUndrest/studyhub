@@ -1,5 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
+import environment from './environment';
 
 export class lector {
   subjectData = {};
@@ -11,14 +12,14 @@ export class lector {
   activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/subjects')
+    client.fetch(environment.apiUrl + 'subjects')
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
   addSubject() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/subjects/add', {
+    client.fetch(environment.apiUrl + 'subjects/add', {
       'method': 'POST',
       'body': json(this.subjectData)
     })
