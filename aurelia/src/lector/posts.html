@@ -103,14 +103,44 @@
       </div>
     </div>
   </div>
-    <ul class="list-group">
-      <li  repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
-            <div class="btn-group edit-button" role="group">
-                <button type="button" class="btn btn-outline-dark">Muuda</button>
-                <button type="button" class="btn btn-outline-dark">Kustuta</button>
-            </div>
-        </li>
-    </ul>
+  <ul class="list-group">
+    <li  repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
+      <div class="btn-group edit-button" role="group">
+        <input type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editPost" value="Muuda">
+        <input type="button" class="btn btn-outline-dark" click.delegate="removePost(postId)" value="Kustuta">
+      </div>
+    </li>
+  </ul>
+  <div class="modal fade" id="editPost" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Muuda tähtaega</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <form submit.delegate = "editPost()">
+              <p>
+                <input class="form-control" type="text" name="subject" placeholder="Pealkiri">
+              </p>
+              <p>
+                <input class="form-control" type="text" name="code" placeholder="Kirjeldus">
+              </p>
+              <p>
+                <input class="form-control" type="text" name="code" placeholder="Kuupäev">
+              </p>
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-secondary" value="Muuda">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <div class="footer">
     Andra Mataloja, Elina Meister, Kristin Undrest

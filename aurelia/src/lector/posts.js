@@ -44,6 +44,19 @@ export class post {
         console.log('Server saatis' + data.post);
       });
   }
+ /* editPost() {
+    this.postData = postId;
+    this.postData = new (this.postData.title, this.postData.content);
+  }*/
+
+  removePost(id) {
+    client.fetch(environment.apiUrl + 'posts' + id, {
+      'method': 'DELETE'
+    }).then(() => {
+      console.log('post deleted');
+      this.activate();
+    });
+  }
 
   activate() {
     let client = new HttpClient();

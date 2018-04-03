@@ -29,4 +29,7 @@ public class PostController {
     public Post getPost(@PathVariable("id") long postId) {
         return postService.getPostById(postId);
     }
+
+    @DeleteMapping(value = "/posts/{id}")
+    public void removePost(@PathVariable("id") long postId) { postService.removePost(postId); }
 }
