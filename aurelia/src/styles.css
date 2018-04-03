@@ -1,3 +1,7 @@
+body{
+  overflow: -moz-scrollbars-vertical;
+  margin-bottom: 80px;
+}
 .material-icons.md-dark {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -8,8 +12,7 @@
   padding-right:30px;
 }
 .container {
-  padding-top: 60px;
-  background-color: white;
+  padding-top: 40px;
 }
 #forms{
   margin: auto;
@@ -43,11 +46,12 @@
   text-decoration: underline;
   color: #666;
 }
-.lisa-button{
+.button{
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: #868e96;
 }
-.btn-group.edit-buttons{
+.btn-group.edit-button{
   right: 10px;
   float: right;
 }
@@ -63,9 +67,6 @@
 }
 .btn-group.mark-buttons{
   margin-bottom: 30px;
-}
-#back-button{
-  font-size: 14px;
 }
 .selectpicker.form-control{
   margin-top: 30px;
@@ -90,14 +91,8 @@
   padding: 10px;
 }
 body{
-  background: url(/src/resources/background.jpg) no-repeat;
+  background: url(/src/resources/darkwood.png);
 }
 h2{
   color: white;
 }
-
-
-/*
-kui .footeris on position relative, siis on see norm scrollimisel ja jääb lehe alla, aga kui leht on väiksem kui terve leht, siis on footer kole
-aga kui position on absoslute, siis pole see norm scrollimisel....
-*/

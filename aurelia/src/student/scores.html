@@ -6,8 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li><a route-href="route: studentscores" class="btn btn-outline-secondary" id="hinded-button" role="button" aria-disabled="true">Hinded</a></li>
-        <li><a route-href="route: studentposts" class="btn btn-outline-secondary" id="tahtajad-button" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+        <li><a route-href="route: studentscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a></li>
+        <li><a route-href="route: studentposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Tähtajad</a></li>
         <li class="nav-item dropdown">
           <div class="dropdown">
             <button click.delegate = "getSubjects()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,7 +66,7 @@
     </div>
   </nav>
 <div class="container">
-    <a route-href="route: student" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <a route-href="route: student" class="btn btn-secondary button" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="selection">
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <button type="button" class="btn btn-secondary">Aeg</button>

@@ -7,8 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a></li>
-        <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a></li>
-        <li><a route-href="route: lectorposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Kodused ülesanded</a></li>
+        <li><a route-href="route: lectorposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Tähtajad</a></li>
         <li class="nav-item dropdown">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,17 +67,9 @@
         Ained
       </h2>
     </div>
-        <form submit.delegate = "addSubject()">
-          <p>
-            <input class="form-control" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
-          </p>
-          <p>
-            <input class="form-control" type="text" name="code" placeholder="Ainekood" value.bind="subjectData.code">
-          </p>
-          <div class="modal-footer">
-            <input type="submit" class="btn btn-secondary" value="Lisa">
-          </div>
-        </form>
+    <div>
+      <input type="button" class="btn btn-secondary button" data-toggle="modal" data-target="#newSubject" value="Lisa">
+    </div>
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item">${subject.subject} ${subject.code}</li>
     </ul>

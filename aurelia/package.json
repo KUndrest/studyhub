@@ -61,5 +61,15 @@
     "through2": "^2.0.1",
     "uglify-js": "^3.0.19",
     "vinyl-fs": "^2.4.3"
+  },
+  "jspm": {
+    "dependencies": {
+      "aurelia-table": "github:tochoromero/aurelia-table@^0.1.13"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
