@@ -9,6 +9,7 @@
 }
 .container {
   padding-top: 60px;
+  background-color: white;
 }
 #forms{
   margin: auto;
@@ -82,7 +83,7 @@
   margin-top: 100px;
   background-color: ghostwhite;
   bottom: 0;
-  position: relative;
+  position: fixed;
   width: 100%;
   text-align: right;
   height: 30px;

@@ -64,23 +64,21 @@
 <div class="container">
     <a route-href="route:lector" class="btn btn-outline-secondary" id="back-button" role="button" aria-disabled="true">Tagasi</a>
     <div class="table-responsive">
-      <table class="table table-striped" aurelia-table="data.bind: people; display-data.bind: $displayData">
+      <table class="table table-striped" aurelia-table="data.bind: people; display-data.bind: $people">
         <thead>
         <tr>
           <th>Name</th>
-          <th>Age</th>
-          <th>E-mail</th>
-          <th>Address</th>
+          <th data-toggle="modal" data-target="#newScore">+</th>
         </tr>
         </thead>
         <tbody>
-        <tr repeat.for="person of $displayData">
+        <tr repeat.for="person of $people">
           <td>${person.name}</td>
         </tr>
         </tbody>
       </table>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newScore" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,22 +88,28 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="btn-group mark-buttons" role="group">
-                        <button type="button" class="btn btn-secondary">Hinne</button>
-                        <button type="button" class="btn btn-secondary">Punktid</button>
-                    </div>
-                    <div class="form-group">
-                        <p>
-                            <input class="form-control" type="text" placeholder="Tulemus">
-                        </p>
-                        <p>
-                            <input class="form-control" type="text" placeholder="Selgitus">
-                        </p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulge</button>
-                    <button type="button" class="btn btn-secondary">Salvesta</button>
+                  <div class="form-group">
+                    <form submit.delegate = "addHeader()">
+                      <div>
+                        <label>
+                          <input type="radio" name="choices"
+                                 model.bind="true" checked.bind="scoreData.isMark">
+                          Hinne
+                        </label>
+                        <label>
+                          <input type="radio" name="choices"
+                                 model.bind="false" checked.bind="scoreData.isMark">
+                          Punktid
+                        </label>
+                      </div>
+                          <p>
+                              <input class="form-control" type="text" placeholder="Selgitus" value.bind="scoreData.score">
+                          </p>
+                      <div class="modal-footer">
+                          <button type="submit" class="btn btn-secondary">Salvesta</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
             </div>
         </div>

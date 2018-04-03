@@ -5,11 +5,16 @@ import environment from '../environment';
 export class score {
   subjectList = [];
   scoreList = [];
-  scoreData = {};
+  scoreData = {
+    isMark: false
+  };
   subjectData = {};
   people = [];
 
+  scoreChoices = null;
+
   constructor() {
+    this.getPeople();
   }
 
   getPeople(){
@@ -27,7 +32,7 @@ export class score {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
-  addScore() {
+  addHeader() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'scores/add', {
@@ -39,6 +44,18 @@ export class score {
         console.log('Server saatis' + data.score);
       });
   }
+  /*addScore() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'scores/add', {
+      'method': 'POST',
+      'body': json(this.scoreData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Server saatis' + data.score);
+      });
+  }*/
   addSubject() {
     let client = new HttpClient();
 

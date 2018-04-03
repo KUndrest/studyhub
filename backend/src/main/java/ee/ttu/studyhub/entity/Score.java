@@ -16,8 +16,9 @@ public class Score {
     @GeneratedValue
     private Long id;
     private String score;
-    private String content;
+    private String header;
     private LocalDateTime created;
+    private Boolean isMark;
 
     @PrePersist
     public void PreSave(){
