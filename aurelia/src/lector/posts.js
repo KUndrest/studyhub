@@ -11,6 +11,7 @@ export class post {
 
   constructor() {
   }
+
   getSubjects() {
     let client = new HttpClient();
 
@@ -44,13 +45,29 @@ export class post {
         console.log('Server saatis' + data.post);
       });
   }
- /* editPost() {
-    this.postData = postId;
-    this.postData = new (this.postData.title, this.postData.content);
-  }*/
+
+  savePostEdit() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'post', {
+      'method': 'POST',
+      'body': json(this.postData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        $('#editPost').modal('hide');
+      });
+  }
+
+  editPost(postData) {
+    this.postData = postData;
+    $('#editPost').modal();
+  }
 
   removePost(id) {
-    client.fetch(environment.apiUrl + 'posts' + id, {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'posts/' + id, {
       'method': 'DELETE'
     }).then(() => {
       console.log('post deleted');

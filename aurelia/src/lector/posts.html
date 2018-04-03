@@ -104,10 +104,10 @@
     </div>
   </div>
   <ul class="list-group">
-    <li  repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
+    <li repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
       <div class="btn-group edit-button" role="group">
-        <input type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editPost" value="Muuda">
-        <input type="button" class="btn btn-outline-dark" click.delegate="removePost(postId)" value="Kustuta">
+        <input type="button" class="btn btn-outline-dark" data-toggle="modal" click.delegate="editPost(post)" value="Muuda">
+        <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
       </div>
     </li>
   </ul>
@@ -122,18 +122,15 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <form submit.delegate = "editPost()">
+            <form>
               <p>
-                <input class="form-control" type="text" name="subject" placeholder="Pealkiri">
+                <input class="form-control" type="text" name="subject" placeholder="Pealkiri" value.bind="postData.title">
               </p>
               <p>
-                <input class="form-control" type="text" name="code" placeholder="Kirjeldus">
-              </p>
-              <p>
-                <input class="form-control" type="text" name="code" placeholder="Kuupäev">
+                <input class="form-control" type="text" name="code" placeholder="Kirjeldus" value.bind="postData.content">
               </p>
               <div class="modal-footer">
-                <input type="submit" class="btn btn-secondary" value="Muuda">
+                <input type="button" value="Muuda" class="btn btn-secondary" click.delegate="savePostEdit()">
               </div>
             </form>
           </div>

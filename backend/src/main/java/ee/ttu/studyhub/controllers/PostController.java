@@ -4,32 +4,48 @@ import ee.ttu.studyhub.entity.Post;
 import ee.ttu.studyhub.service.PostService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
 public class PostController {
+
+    @PersistenceContext
+    private EntityManager em;
+
     private PostService postService;
 
     public PostController(PostService postService) {
         this.postService = postService;
     }
 
-    @RequestMapping(value="/posts/add", method= RequestMethod.POST,
+    @RequestMapping(value = "/posts/add", method = RequestMethod.POST,
             consumes = "application/json")
     public Post addPost(@RequestBody Post post) {
         return postService.addPost(post);
     }
 
-    @RequestMapping(value="/posts", method=RequestMethod.GET)
+    @RequestMapping(value = "/posts", method = RequestMethod.GET)
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
 
-    @RequestMapping(value = "/posts/{id}", method=RequestMethod.GET)
+    @RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
     public Post getPost(@PathVariable("id") long postId) {
         return postService.getPostById(postId);
     }
 
     @DeleteMapping(value = "/posts/{id}")
-    public void removePost(@PathVariable("id") long postId) { postService.removePost(postId); }
+    public List<Post> removePost(@PathVariable("id") long postId) {
+        postService.removePost(postId);
+        return getAllPosts();
+    }
+
+    @Transactional
+    @PostMapping(value = "/post")
+    public Post updatePost(@RequestBody Post post) {
+        return em.merge(post);
+    }
 }
