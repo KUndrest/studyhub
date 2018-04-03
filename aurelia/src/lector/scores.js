@@ -1,20 +1,24 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
+import {inject} from 'aurelia-framework';
+import {StudyHubService} from "../studyhub-service/studyhub-service";
 
+@inject(StudyHubService)
 export class score {
   subjectList = [];
-  scoreList = [];
-  scoreData = {
+  headerList = [];
+  headerData = {
     isMark: false
   };
   subjectData = {};
   people = [];
 
-  scoreChoices = null;
-
-  constructor() {
+  constructor(studyHubService) {
+    this.studyHubService = studyHubService;
     this.getPeople();
+    this.getHeaders();
+    console.log(this.studyHubService.selectedSubject);
   }
 
   getPeople(){
@@ -32,12 +36,21 @@ export class score {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
+
+  getHeaders() {
+    let client = new HttpClient();
+
+    return client.fetch(environment.apiUrl + 'headers')
+      .then(response => response.json())
+      .then(header => this.headerList = header);
+  }
+
   addHeader() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'scores/add', {
+    client.fetch(environment.apiUrl + 'headers/add', {
       'method': 'POST',
-      'body': json(this.scoreData)
+      'body': json(this.headerData)
     })
       .then(response => response.json())
       .then(data => {
@@ -49,7 +62,7 @@ export class score {
 
     client.fetch(environment.apiUrl + 'scores/add', {
       'method': 'POST',
-      'body': json(this.scoreData)
+      'body': json(this.headerData)
     })
       .then(response => response.json())
       .then(data => {

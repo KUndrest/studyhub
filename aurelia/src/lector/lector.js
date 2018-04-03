@@ -1,14 +1,20 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
 import environment from '../environment';
+import {inject} from 'aurelia-framework';
+import {StudyHubService} from "../studyhub-service/studyhub-service";
 
+@inject(StudyHubService)
 export class lector {
   subjectData = {};
   subjectList = [];
+  selectedSubject;
 
 
-  constructor() {
+  constructor(studyHubService) {
+    this.studyHubService = studyHubService;
   }
+
   activate() {
     let client = new HttpClient();
 
@@ -27,6 +33,10 @@ export class lector {
       .then(data => {
         console.log('Server saatis' + data.post);
       });
+  }
+
+  subjectSelected(subject) {
+    this.studyHubService.selectedSubject = subject;
   }
 }
 

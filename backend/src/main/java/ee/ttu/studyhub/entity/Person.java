@@ -19,11 +19,5 @@ public class Person {
     private String studentCode;
 
     @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
-    List<Subject> subjects;
-
-    @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
-    List<Post> posts;
-
-    @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
-    List<Score> scores;
+    List<SubjectPerson> subjectPersons;
 }

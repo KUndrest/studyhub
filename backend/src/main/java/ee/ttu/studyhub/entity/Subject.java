@@ -23,5 +23,8 @@ public class Subject {
     List<Post> posts;
 
     @OneToMany(mappedBy ="subject", cascade= CascadeType.ALL)
-    List<Score> scores;
+    List<Header> header;
+
+    @OneToMany(mappedBy ="subject", cascade= CascadeType.ALL)
+    List<SubjectPerson> subjectPersons;
 }

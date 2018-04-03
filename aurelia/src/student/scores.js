@@ -21,7 +21,7 @@ export class score {
 
     client.fetch(environment.apiUrl + 'scores/add', {
       'method': 'POST',
-      'body': json(this.scoreData)
+      'body': json(this.headerData)
     })
       .then(response => response.json())
       .then(data => {

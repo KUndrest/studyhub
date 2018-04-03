@@ -14,7 +14,7 @@
               Vali aine
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a repeat.for="subject of subjectList" class="dropdown-item">${subject.subject} ${subject.code}</a>
+              <a repeat.for="subject of subjectList" click.delegate="subjectSelected(subject)" class="dropdown-item">${subject.subject} ${subject.code}</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" data-toggle="modal" data-target="#newSubject">Lisa uus aine</a>
             </div>
