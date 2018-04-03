@@ -1,6 +1,6 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
-import environment from './environment';
+import environment from '../environment';
 
 export class post {
   subjectList = [];

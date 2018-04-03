@@ -1,6 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
-import environment from './environment';
+import environment from '../environment';
 
 export class lector {
   subjectData = {};
