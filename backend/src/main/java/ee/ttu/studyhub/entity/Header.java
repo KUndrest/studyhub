@@ -21,7 +21,7 @@ public class Header {
     private Boolean isMark;
 
     @PrePersist
-    public void PreSave(){
+    public void PreSave() {
         created = LocalDateTime.now();
     }
 

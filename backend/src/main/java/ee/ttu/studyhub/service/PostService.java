@@ -18,6 +18,7 @@ public class PostService {
     }
 
     public Post addPost(Post post) {
+
         return postRepository.save(post);
     }
 
@@ -26,8 +27,11 @@ public class PostService {
     }
 
     public Post getPostById(long postId) {
+
         return postRepository.findOne(postId);
     }
 
-    public void removePost(long postId) { postRepository.delete(postId); }
+    public void removePost(long postId) {
+        postRepository.delete(postId);
+    }
 }
