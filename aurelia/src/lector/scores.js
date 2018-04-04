@@ -6,19 +6,24 @@ import {StudyHubService} from '../studyhub-service/studyhub-service';
 
 @inject(StudyHubService)
 export class score {
-  subjectList = [];
   headerList = [];
   headerData = {
     isMark: false
   };
+  subjectList = [];
   subjectData = {};
   people = [];
+  selectedSubject;
 
   constructor(studyHubService) {
     this.studyHubService = studyHubService;
     this.getPeople();
     this.getHeaders();
     console.log(this.studyHubService.selectedSubject);
+  }
+
+  subjectSelected(subject) {
+    this.studyHubService.selectedSubject = subject;
   }
 
   getPeople() {
@@ -58,19 +63,7 @@ export class score {
         this.getHeaders();
       });
   }
-  /*addScore() {
-    let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'scores/add', {
-      'method': 'POST',
-      'body': json(this.headerData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Server saatis' + data.score);
-        this.activate();
-      });
-  }*/
   addSubject() {
     let client = new HttpClient();
 

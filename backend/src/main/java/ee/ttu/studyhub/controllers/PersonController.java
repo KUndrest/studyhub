@@ -1,6 +1,5 @@
 package ee.ttu.studyhub.controllers;
 
-
 import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.service.PersonService;
 import org.springframework.web.bind.annotation.*;

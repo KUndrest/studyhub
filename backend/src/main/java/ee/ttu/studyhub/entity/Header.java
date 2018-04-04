@@ -1,6 +1,4 @@
 package ee.ttu.studyhub.entity;
-
-
 import lombok.Getter;
 import lombok.Setter;
 

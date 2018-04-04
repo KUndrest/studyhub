@@ -1,15 +1,23 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
+import {StudyHubService} from '../studyhub-service/studyhub-service';
 
+@inject(StudyHubService)
 export class post {
 
   subjectList = [];
   postData = {};
   subjectData = {};
   postList = [];
+  selectedSubject;
 
-  constructor() {
+  constructor(studyHubService) {
+    this.studyHubService = studyHubService;
+  }
+
+  subjectSelected(subject) {
+    this.studyHubService.selectedSubject = subject;
   }
 
   getSubjects() {
