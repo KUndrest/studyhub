@@ -26,7 +26,8 @@ export class student {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.post);
+        console.log('Server saatis' + data.title);
+        this.activate();
       });
   }
   activate() {
@@ -36,7 +37,7 @@ export class student {
       .then(response => response.json())
       .then(posts => this.postList = posts);
   }
-  /*activate() {
+  /*getScores() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'scores')

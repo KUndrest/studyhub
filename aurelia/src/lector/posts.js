@@ -29,7 +29,8 @@ export class post {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.post);
+        console.log('Server saatis' + data.title);
+        this.activate();
       });
   }
 
@@ -42,7 +43,8 @@ export class post {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.post);
+        console.log('Server saatis' + data.subject);
+        this.getSubjects();
       });
   }
 

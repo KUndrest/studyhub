@@ -16,23 +16,20 @@ export class score {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
-  /*addScore() {
-    let client = new HttpClient();
-
-    client.fetch(environment.apiUrl + 'scores/add', {
-      'method': 'POST',
-      'body': json(this.headerData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Server saatis' + data.score);
-      });
-  }*/
-  /*activate() {
+  /*
+  activate() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'scores')
       .then(response => response.json())
       .then(scores => this.scoreList = scores);
-  }*/
+  }
+  getHeaders() {
+    let client = new HttpClient();
+
+    return client.fetch(environment.apiUrl + 'headers')
+      .then(response => response.json())
+      .then(header => this.headerList = header);
+  }
+  */
 }

@@ -2,7 +2,7 @@ import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
 import {inject} from 'aurelia-framework';
-import {StudyHubService} from "../studyhub-service/studyhub-service";
+import {StudyHubService} from '../studyhub-service/studyhub-service';
 
 @inject(StudyHubService)
 export class score {
@@ -21,7 +21,7 @@ export class score {
     console.log(this.studyHubService.selectedSubject);
   }
 
-  getPeople(){
+  getPeople() {
     let client = new HttpClient();
 
     return client.fetch(environment.apiUrl + 'person')
@@ -54,7 +54,8 @@ export class score {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.score);
+        console.log('Server saatis' + data.header);
+        this.getHeaders();
       });
   }
   /*addScore() {
@@ -67,6 +68,7 @@ export class score {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.score);
+        this.activate();
       });
   }*/
   addSubject() {
@@ -78,7 +80,8 @@ export class score {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Server saatis' + data.post);
+        console.log('Server saatis' + data.subject);
+        this.getSubjects();
       });
   }
   /*activate() {
