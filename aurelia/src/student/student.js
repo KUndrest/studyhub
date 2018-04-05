@@ -30,6 +30,34 @@ export class student {
         this.activate();
       });
   }
+  savePostEdit() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'post', {
+      'method': 'POST',
+      'body': json(this.postData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        $('#editPost').modal('hide');
+      });
+  }
+
+  editPost(postData) {
+    this.postData = postData;
+    $('#editPost').modal();
+  }
+
+  removePost(id) {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'posts/' + id, {
+      'method': 'DELETE'
+    }).then(() => {
+      console.log('post deleted');
+      this.activate();
+    });
+  }
   activate() {
     let client = new HttpClient();
 
