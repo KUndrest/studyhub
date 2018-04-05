@@ -1,5 +1,6 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import {inject} from 'aurelia-framework';
 import environment from '../environment';
 import {StudyHubService} from '../studyhub-service/studyhub-service';
 

@@ -1,7 +1,9 @@
 package ee.ttu.studyhub.service;
 
+import ee.ttu.studyhub.entity.Subject;
 import ee.ttu.studyhub.entity.SubjectPerson;
 import ee.ttu.studyhub.repository.SubjectPersonRepository;
+import ee.ttu.studyhub.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ public class SubjectPersonService {
 
     @Autowired
     private SubjectPersonRepository subjectPersonRepository;
+
+    @Autowired
+    private SubjectRepository subjectRepository;
 
     public SubjectPersonService(SubjectPersonRepository subjectPersonRepository) {
         this.subjectPersonRepository = subjectPersonRepository;
@@ -27,6 +32,11 @@ public class SubjectPersonService {
 
     public SubjectPerson getSubjectPersonById(long subjectPersonId) {
         return subjectPersonRepository.findOne(subjectPersonId);
+    }
+
+    public List<SubjectPerson> getSubjectPersonsBySubjectId(Long subjectId) {
+        Subject subject = subjectRepository.findOne(subjectId);
+        return subjectPersonRepository.findAllBySubject(subject);
     }
 }
 

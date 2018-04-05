@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class Person {
     private String name;
     private String studentCode;
 
+    @JsonIgnore
     @OneToMany(mappedBy ="person", cascade= CascadeType.ALL)
     List<SubjectPerson> subjectPersons;
 }

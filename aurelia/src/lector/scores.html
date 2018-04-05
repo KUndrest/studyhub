@@ -68,13 +68,20 @@
         <thead>
         <tr>
           <th>Name</th>
-          <th repeat.for="header of headerList" data-toggle="modal" data-target="#newScore">+ ${header.header}</th>
+          <th repeat.for="header of headerList" data-toggle="modal">${header.header}</th>
           <th data-toggle="modal" data-target="#newScore">+</th>
         </tr>
         </thead>
         <tbody>
-        <tr repeat.for="person of people">
-          <td>${person.name}</td>
+        <tr repeat.for="subjectPerson of people">
+          <td>${subjectPerson.person.name}</td>
+          <td repeat.for="header of headerList" data-toggle="modal" click.delegate="startEditingScore(subjectPerson, header)">
+            <a if.bind="selectedRow != subjectPerson.id + ':' + header.id">${getScoreData(subjectPerson.id, header.id)}</a>
+            <div if.bind="selectedRow == subjectPerson.id + ':' + header.id">
+              <input type="text" value.bind="scoreData.score">
+              <button click.delegate="saveScoreData()">✓</button>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -117,6 +124,6 @@
     </div>
   </div>
   <div class="footer">
-    Andra Mataloja, Elina Meister, Kristin Undrest
+    Andra Mataloja, Elina Meister, Kristin Undrest ¦ Copyright 3037
   </div>
 </template>

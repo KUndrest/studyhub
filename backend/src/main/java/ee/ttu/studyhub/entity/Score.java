@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,16 +16,18 @@ public class Score {
     @GeneratedValue
     private Long id;
     private LocalDateTime created;
-    private Boolean isMark;
+
+    private Integer score;
 
     @PrePersist
-    public void PreSave(){
+    public void PreSave() {
         created = LocalDateTime.now();
     }
 
     @ManyToOne
     SubjectPerson subjectPerson;
 
+    @JsonIgnore
     @NotNull
     @ManyToOne
     Header header;

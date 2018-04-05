@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +24,7 @@ public class Post {
         created = LocalDateTime.now();
     }
 
+    @JsonIgnore
     @ManyToOne
     Subject subject;
 }

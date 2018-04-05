@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ public class Subject {
     private String subject;
     private String code;
 
+    @JsonIgnore
     @ManyToOne
     Person person;
 

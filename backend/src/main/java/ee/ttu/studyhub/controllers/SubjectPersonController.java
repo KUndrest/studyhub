@@ -26,8 +26,8 @@ public class SubjectPersonController {
         return subjectPersonService.getAllSubjectPersons();
     }
 
-    @RequestMapping(value = "/subjectPersons/{id}", method=RequestMethod.GET)
-    public SubjectPerson getSubjectPerson(@PathVariable("id") long subjectPersonId) {
-        return subjectPersonService.getSubjectPersonById(subjectPersonId);
+    @GetMapping(value = "/subjectPersons/{id}")
+    public List<SubjectPerson> getSubjectPerson(@PathVariable("id") long subjectId) {
+        return subjectPersonService.getSubjectPersonsBySubjectId(subjectId);
     }
 }
