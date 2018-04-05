@@ -9,12 +9,21 @@ export class post {
 
   constructor() {
   }
+
   getSubjects() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'subjects')
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
+  }
+
+  activate() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'posts')
+      .then(response => response.json())
+      .then(posts => this.postList = posts);
   }
 
   addPost() {
@@ -27,10 +36,15 @@ export class post {
       .then(data => {
         console.log('Server saatis' + data.title);
         $('#newPost').modal('hide');
-        this.postData = {};
         this.activate();
       });
   }
+
+  newPost() {
+    this.postData = {};
+    $('#newPost').modal();
+  }
+
   savePostEdit() {
     let client = new HttpClient();
 
@@ -60,11 +74,13 @@ export class post {
       this.activate();
     });
   }
-  activate() {
-    let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'posts')
-      .then(response => response.json())
-      .then(posts => this.postList = posts);
+  registerSubject() {
+    //loob seose tudengi ja valitud aine vahele, paneb modeli kinni ja kutsub getSubjecti uuesti
+  }
+
+  subjectList() {
+    this.subjectData = {};
+    $('#registerSubject').modal();
   }
 }

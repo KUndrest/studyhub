@@ -34,7 +34,7 @@ export class score {
     if (this.studyHubService.selectedSubject) {
       client.fetch(environment.apiUrl + 'subjectPersons/' + this.studyHubService.selectedSubject.id)
         .then(response => response.json())
-        .then (person => this.people = person);
+        .then(person => this.people = person);
     }
   }
 
@@ -112,14 +112,13 @@ export class score {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.subject);
+        $('#newSubject').modal('hide');
         this.getSubjects();
       });
   }
-  /*activate() {
-    let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'scores')
-      .then(response => response.json())
-      .then(scores => this.scoreList = scores);
-  }*/
+  newSubject() {
+    this.subjectData = {};
+    $('#newSubject').modal();
+  }
 }

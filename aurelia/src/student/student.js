@@ -10,6 +10,7 @@ export class student {
 
   constructor() {
   }
+
   getSubjects() {
     let client = new HttpClient();
 
@@ -17,6 +18,15 @@ export class student {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
+
+  activate() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'posts')
+      .then(response => response.json())
+      .then(posts => this.postList = posts);
+  }
+
   addPost() {
     let client = new HttpClient();
 
@@ -27,9 +37,16 @@ export class student {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.title);
+        $('#newPost').modal('hide');
         this.activate();
       });
   }
+
+  newPost() {
+    this.postData = {};
+    $('#newPost').modal();
+  }
+
   savePostEdit() {
     let client = new HttpClient();
 
@@ -58,18 +75,30 @@ export class student {
       this.activate();
     });
   }
-  activate() {
-    let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'posts')
-      .then(response => response.json())
-      .then(posts => this.postList = posts);
-  }
-  /*getScores() {
+  /*
+  getScores() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'scores')
       .then(response => response.json())
       .then(scores => this.scoreList = scores);
-  }*/
+  }
+  getHeaders() {
+    let client = new HttpClient();
+
+    return client.fetch(environment.apiUrl + 'headers')
+      .then(response => response.json())
+      .then(header => this.headerList = header);
+  }
+  */
+
+  registerSubject() {
+    //loob seose tudengi ja valitud aine vahele, paneb modeli kinni ja kutsub getSubjecti uuesti
+  }
+
+  subjectList() {
+    this.subjectData = {};
+    $('#registerSubject').modal();
+  }
 }

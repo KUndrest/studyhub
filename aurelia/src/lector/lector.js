@@ -22,6 +22,7 @@ export class lector {
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
+
   addSubject() {
     let client = new HttpClient();
 
@@ -33,10 +34,15 @@ export class lector {
       .then(data => {
         console.log('Server saatis' + data.subject);
         $('#newSubject').modal('hide');
-        this.subjectData = {};
         this.activate();
       });
   }
+
+  newSubject() {
+    this.subjectData = {};
+    $('#newSubject').modal();
+  }
+
   subjectSelected(subject) {
     this.studyHubService.selectedSubject = subject;
   }

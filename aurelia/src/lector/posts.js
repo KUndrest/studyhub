@@ -29,6 +29,14 @@ export class post {
       .then(subjects => this.subjectList = subjects);
   }
 
+  activate() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'posts')
+      .then(response => response.json())
+      .then(posts => this.postList = posts);
+  }
+
   addPost() {
     let client = new HttpClient();
 
@@ -40,8 +48,13 @@ export class post {
       .then(data => {
         console.log('Server saatis' + data.title);
         $('#newPost').modal('hide');
-        this.postData = {};
+        this.activate();
       });
+  }
+
+  newPost() {
+    this.postData = {};
+    $('#newPost').modal();
   }
 
   addSubject() {
@@ -55,9 +68,13 @@ export class post {
       .then(data => {
         console.log('Server saatis' + data.subject);
         $('#newSubject').modal('hide');
-        this.subjectData = {};
         this.getSubjects();
       });
+  }
+
+  newSubject() {
+    this.subjectData = {};
+    $('#newSubject').modal();
   }
 
   savePostEdit() {
@@ -88,13 +105,5 @@ export class post {
       console.log('post deleted');
       this.activate();
     });
-  }
-
-  activate() {
-    let client = new HttpClient();
-
-    client.fetch(environment.apiUrl + 'posts')
-      .then(response => response.json())
-      .then(posts => this.postList = posts);
   }
 }

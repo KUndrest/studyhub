@@ -1,22 +1,27 @@
 <template bindable="router">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" route-href="route: lector">StudyHub</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a></li>
-        <li><a route-href="route: lectorposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Tähtajad</a></li>
+        <li><a route-href="route: lectorscores" class="btn btn-outline-secondary" role="button" aria-disabled="true">Hinded</a>
+        </li>
+        <li><a route-href="route: lectorposts" class="btn btn-outline-secondary" role="button" aria-disabled="true">Tähtajad</a>
+        </li>
         <li class="nav-item dropdown">
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Vali aine
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a repeat.for="subject of subjectList" click.delegate="subjectSelected(subject)" class="dropdown-item">${subject.subject} ${subject.code}</a>
+              <a repeat.for="subject of subjectList" click.delegate="subjectSelected(subject)" class="dropdown-item">${subject.subject}
+                ${subject.code}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" data-toggle="modal" data-target="#newSubject">Lisa uus aine</a>
+              <a class="dropdown-item" click.delegate="newSubject()">Lisa uus aine</a>
             </div>
           </div>
         </li>
@@ -26,7 +31,7 @@
               <i class="material-icons md-36 md-dark">account_circle</i>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" >Minu andmed</a>
+              <a class="dropdown-item">Minu andmed</a>
               <a class="dropdown-item" route-href="route: home">Logi välja</a>
             </div>
           </div>
@@ -44,15 +49,17 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <form submit.delegate = "addSubject()">
+              <form submit.delegate="addSubject()">
                 <p>
-                  <input class="form-control" type="text" name="subject" placeholder="Aine nimetus" value.bind="subjectData.subject">
+                  <input class="form-control" type="text" name="subject" placeholder="Aine nimetus"
+                         value.bind="subjectData.subject">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Ainekood" value.bind="subjectData.code">
+                  <input class="form-control" type="text" name="code" placeholder="Ainekood"
+                         value.bind="subjectData.code">
                 </p>
                 <div class="modal-footer">
-                  <input type="submit" class="btn btn-secondary" value="Lisa">
+                  <input type="submit" class="btn btn-secondary button" value="Lisa">
                 </div>
               </form>
             </div>
@@ -68,7 +75,7 @@
       </h2>
     </div>
     <div>
-      <input type="button" class="btn btn-secondary button" data-toggle="modal" data-target="#newSubject" value="Lisa">
+      <input type="button" class="btn btn-secondary button" click.delegate="newSubject()" value="Lisa">
     </div>
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item">${subject.subject} ${subject.code}</li>

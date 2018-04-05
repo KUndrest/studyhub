@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
@@ -32,6 +31,7 @@ export class home {
       $('.registrationPasswordMatch').html("Passwords don't match");
     }
   }
+
   studentCheck() {
     if (!document.getElementById('student').checked) {
       document.getElementById('studentCode').style.display = 'none';
@@ -41,6 +41,7 @@ export class home {
       return false;
     }
   }
+
   changeForm() {
     $('#login-form-link').click(function(e) {
       $('#login-form').delay(100).fadeIn(100);
