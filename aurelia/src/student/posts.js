@@ -19,7 +19,6 @@ export class post {
 
   addPost() {
     let client = new HttpClient();
-
     client.fetch(environment.apiUrl + 'posts/add', {
       'method': 'POST',
       'body': json(this.postData)
@@ -27,6 +26,8 @@ export class post {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.title);
+        $('#newPost').modal('hide');
+        this.postData = {};
         this.activate();
       });
   }
@@ -40,6 +41,7 @@ export class post {
       .then(response => response.json())
       .then(data => {
         $('#editPost').modal('hide');
+        this.postData = {};
       });
   }
 

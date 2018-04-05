@@ -38,6 +38,8 @@ export class post {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.title);
+        $('#newPost').modal('hide');
+        this.postData = {};
       });
   }
 
@@ -51,6 +53,8 @@ export class post {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.subject);
+        $('#newSubject').modal('hide');
+        this.subjectData = {};
         this.getSubjects();
       });
   }
@@ -65,6 +69,7 @@ export class post {
       .then(response => response.json())
       .then(data => {
         $('#editPost').modal('hide');
+        this.postData = {};
       });
   }
 

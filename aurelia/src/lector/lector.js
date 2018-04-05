@@ -32,6 +32,8 @@ export class lector {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data.subject);
+        $('#newSubject').modal('hide');
+        this.subjectData = {};
         this.activate();
       });
   }
