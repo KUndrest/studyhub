@@ -1,5 +1,6 @@
 body{
   overflow: -moz-scrollbars-vertical;
+  overflow: -moz-scrollbars-horizontal;
   margin-bottom: 80px;
 }
 .material-icons.md-dark {

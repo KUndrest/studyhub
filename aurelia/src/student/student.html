@@ -160,6 +160,13 @@
             Hinded
           </h2>
         </div>
+        <!--<ul class="list-group">
+          <li repeat.for="subject of subjectList" class="list-group-item"><b>${subject.subject}</b>
+            <ul class="list-group">
+              <li repeat.for="score of scoreList" if.bind="score.header.subject.id === subject.id" class="list-group-item"><b>${score.score}</b> ${score.header.header} </li>
+            </ul>
+          </li>
+        </ul>-->
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
