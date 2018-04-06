@@ -77,8 +77,8 @@ export class score {
 
   getScoreData(personId, headerId) {
     console.log(personId, headerId);
-    let header = this.headerList.find(h => h.id == headerId);
-    let score = header.scores.find(s => s.subjectPerson.id == personId);
+    let header = this.headerList.find(h => h.id === headerId);
+    let score = header.scores.find(s => s.subjectPerson.id === personId);
     if (score) {
       return score.score;
     }
@@ -89,7 +89,12 @@ export class score {
   startEditingScore(subjectPerson, header) {
     this.scoreData.subjectPerson = subjectPerson;
     this.scoreData.header = header;
-    this.scoreData.score = this.getScoreData(subjectPerson.id, header.id);
+    this.scoreData.score = '';
+    let score = header.scores.find(s => s.subjectPerson.id === subjectPerson.id);
+    if (score) {
+      this.scoreData.score = score.score;
+      this.scoreData.id = score.id;
+    }
     this.selectedRow = subjectPerson.id + ':' + header.id;
   }
 
@@ -105,6 +110,16 @@ export class score {
         console.log('Server saatis' + data.subject);
         this.selectedRow = '';
         this.getHeaders();
+      });
+  }
+  removeScore(id){
+      let client = new HttpClient();
+
+      client.fetch(environment.apiUrl + 'scores/' + id, {
+        'method': 'DELETE'
+      }).then(() => {
+        this.getHeaders();
+        this.selectedRow = '';
       });
   }
 

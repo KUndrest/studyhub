@@ -32,13 +32,14 @@ export class post {
   activate() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'posts')
+    client.fetch(environment.apiUrl + 'posts/' + this.studyHubService.selectedSubject.id)
       .then(response => response.json())
       .then(posts => this.postList = posts);
   }
 
   addPost() {
     let client = new HttpClient();
+    this.postData.subject = this.studyHubService.selectedSubject;
 
     client.fetch(environment.apiUrl + 'posts/add', {
       'method': 'POST',

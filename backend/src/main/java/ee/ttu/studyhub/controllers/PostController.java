@@ -1,7 +1,11 @@
 package ee.ttu.studyhub.controllers;
 
 import ee.ttu.studyhub.entity.Post;
+import ee.ttu.studyhub.entity.PostDTO;
+import ee.ttu.studyhub.entity.Subject;
 import ee.ttu.studyhub.service.PostService;
+import ee.ttu.studyhub.service.SubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
@@ -17,13 +21,24 @@ public class PostController {
 
     private PostService postService;
 
+    @Autowired
+    private SubjectService subjectService;
+
     public PostController(PostService postService) {
         this.postService = postService;
     }
 
     @RequestMapping(value = "/posts/add", method = RequestMethod.POST,
             consumes = "application/json")
-    public Post addPost(@RequestBody Post post) {
+    public Post addPost(@RequestBody PostDTO postDTO) {
+        Post post = new Post();
+        post.setContent(postDTO.getContent());
+        post.setCreated(postDTO.getCreated());
+        post.setDate(postDTO.getDate());
+        post.setSubject(postDTO.getSubject());
+        post.setTitle(postDTO.getTitle());
+        post.setId(postDTO.getId());
+
         return postService.addPost(post);
     }
 
@@ -32,9 +47,10 @@ public class PostController {
         return postService.getAllPosts();
     }
 
-    @RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
-    public Post getPost(@PathVariable("id") long postId) {
-        return postService.getPostById(postId);
+    @RequestMapping(value = "/posts/{id}", method=RequestMethod.GET)
+    public List<Post> getHeaders(@PathVariable("id") long subjectId) {
+        Subject subject = subjectService.getSubjectById(subjectId);
+        return postService.findBySubject(subject);
     }
 
     @DeleteMapping(value = "/posts/{id}")
@@ -45,7 +61,15 @@ public class PostController {
 
     @Transactional
     @PostMapping(value = "/post")
-    public Post updatePost(@RequestBody Post post) {
+    public Post updatePost(@RequestBody PostDTO postDTO) {
+        Post post = postService.getPostById(postDTO.getId());
+
+        post.setContent(postDTO.getContent());
+        post.setCreated(postDTO.getCreated());
+        post.setDate(postDTO.getDate());
+        post.setSubject(postDTO.getSubject());
+        post.setTitle(postDTO.getTitle());
+        post.setId(postDTO.getId());
         return em.merge(post);
     }
 }

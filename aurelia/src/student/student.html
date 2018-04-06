@@ -54,7 +54,7 @@
                 </p>
                 <ul class="list-group">
                   <li class="list-group-item" repeat.for="subject of subjectList">
-                    <input type="checkbox" id="aine" name="aine">
+                    <input type="checkbox" id="aine" name="aine" value.bind="subject">
                     <label for="aine">${subject.subject} ${subject.code}</label>
                   </li>
                 </ul>

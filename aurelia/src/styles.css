@@ -84,6 +84,9 @@ body{
 body{
   background: url(/src/resources/darkwood.png);
 }
-h2{
+h2, h3{
   color: white;
+}
+#subjectList:hover{
+  color: #ccc;
 }

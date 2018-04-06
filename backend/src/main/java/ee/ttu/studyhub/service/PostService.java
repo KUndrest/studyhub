@@ -1,6 +1,7 @@
 package ee.ttu.studyhub.service;
 
 import ee.ttu.studyhub.entity.Post;
+import ee.ttu.studyhub.entity.Subject;
 import ee.ttu.studyhub.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,9 @@ public class PostService {
 
     public void removePost(long postId) {
         postRepository.delete(postId);
+    }
+
+    public List<Post> findBySubject(Subject subject) {
+        return postRepository.findAllBySubject(subject);
     }
 }

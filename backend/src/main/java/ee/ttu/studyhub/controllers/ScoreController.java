@@ -42,4 +42,10 @@ public class ScoreController {
     public Score getScore(@PathVariable("id") long scoreId) {
         return scoreService.getScoreById(scoreId);
     }
+
+    @DeleteMapping(value = "/scores/{id}")
+    public List<Score> removeScore(@PathVariable("id") long scoreId) {
+        scoreService.removeScore(scoreId);
+        return getAllScores();
+    }
 }

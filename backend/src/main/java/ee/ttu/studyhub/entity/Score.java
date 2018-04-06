@@ -1,6 +1,6 @@
 package ee.ttu.studyhub.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +27,7 @@ public class Score {
     @ManyToOne
     SubjectPerson subjectPerson;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("scores")
     @NotNull
     @ManyToOne
     Header header;

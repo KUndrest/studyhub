@@ -1,5 +1,5 @@
 package ee.ttu.studyhub.entity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +26,7 @@ public class Header {
         created = LocalDateTime.now();
     }
 
-    @JsonIgnore
+    @JsonIgnoreProperties({"headers", "subjectPersons", "person", "posts"})
     @NotNull
     @ManyToOne
     private Subject subject;
@@ -34,6 +34,7 @@ public class Header {
     @ManyToOne
     private Person person;
 
+    @JsonIgnoreProperties("header")
     @OneToMany(mappedBy="header", fetch = EAGER)
     private List<Score> scores;
 }

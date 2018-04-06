@@ -8,6 +8,7 @@ export class score {
 
   constructor() {
     this.getScores();
+    this.getSubjects()
   }
 
   getScores() {

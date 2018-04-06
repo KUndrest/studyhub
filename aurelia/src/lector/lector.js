@@ -45,6 +45,7 @@ export class lector {
 
   subjectSelected(subject) {
     this.studyHubService.selectedSubject = subject;
+    window.location.href = "http://localhost:9000/#/lectorposts";
   }
 }
 

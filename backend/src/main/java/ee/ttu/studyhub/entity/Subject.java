@@ -17,15 +17,15 @@ public class Subject {
     private String subject;
     private String code;
 
-    @JsonIgnore
     @ManyToOne
     Person person;
 
+    @JsonIgnore
     @OneToMany(mappedBy ="subject", cascade= CascadeType.ALL)
     List<Post> posts;
 
     @OneToMany(mappedBy ="subject", cascade= CascadeType.ALL)
-    List<Header> header;
+    List<Header> headers;
 
     @OneToMany(mappedBy ="subject", cascade= CascadeType.ALL)
     List<SubjectPerson> subjectPersons;

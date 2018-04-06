@@ -34,4 +34,7 @@ public class ScoreService {
     public Score findByPersonAndHeader(SubjectPerson person, Header header) {
         return scoreRepository.findFirstBySubjectPersonAndHeader(person, header);
     }
+    public void removeScore(long scoreId) {
+        scoreRepository.delete(scoreId);
+    }
 }

@@ -3,26 +3,15 @@ package ee.ttu.studyhub.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
 @Setter
-public class Post {
-    @Id
-    @GeneratedValue
+public class PostDTO {
     private Long id;
     private String title;
     private String content;
     private String date;
     private LocalDateTime created;
-
-    @PrePersist
-    public void PreSave(){
-        created = LocalDateTime.now();
-    }
-
-    @ManyToOne
-    Subject subject;
+    private Subject subject;
 }
