@@ -70,6 +70,11 @@
   </nav>
   <div class="container">
     <a route-href="route: student" class="btn btn-secondary button" id="back-button" role="button" aria-disabled="true">Tagasi</a>
+    <div class="pealkiri">
+      <h2>
+        Hinded
+      </h2>
+    </div>
     <div class="selection">
       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
         <button type="button" class="btn btn-secondary button">Aeg</button>
@@ -85,37 +90,16 @@
         </div>
       </div>
     </div>
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Hinne</th>
-        <th>Aine</th>
-        <th>Selgitus</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <th>10 p</th>
-        <td>Süsteemianalüüs</td>
-        <td>Eksami lisapunktide vahetest</td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>Organisatsiooni juhtimine</td>
-        <td></td>
-      </tr>
-      <tr>
-        <th>48p</th>
-        <td>Süsteemianalüüs</td>
-        <td>Kontrolltöö</td>
-      </tr>
-      <tr>
-        <th>7p</th>
-        <td>Ettevõtluse alused</td>
-        <td>Presentatsioon äriideest</td>
-      </tr>
-      </tbody>
-    </table>
+
+    <ul class="list-group">
+      <li repeat.for="subject of subjectList" class="list-group-item"><b>${subject.subject}</b>
+        <ul class="list-group">
+          <li repeat.for="score of scoreList" class="list-group-item"><b>${score.score}</b> </li>
+        </ul>
+      </li>
+    </ul>
+
+
   </div>
   <div class="footer">
     Andra Mataloja, Elina Meister, Kristin Undrest

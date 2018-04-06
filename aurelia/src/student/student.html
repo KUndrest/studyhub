@@ -160,30 +160,29 @@
             Hinded
           </h2>
         </div>
-        <table class="table">
-          <tbody>
-          <tr>
-            <td>10p</td>
-            <td>Süsteemianalüüs</td>
-            <td>Eksami lisapunktide vahetest</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Organisatsiooni juhtimine</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>48p</td>
-            <td>Süsteemianalüüs</td>
-            <td>Kontrolltöö</td>
-          </tr>
-          <tr>
-            <td>7p</td>
-            <td>Ettevõtluse alused</td>
-            <td>Presentatsioon äriideest</td>
-          </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Punktid/hinne</th>
+              <th>Aine</th>
+              <th>Kirjeldus</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td repeat.for="score of scoreList"> ${score.score}</td>
+              <td repeat.for="header of headerList">${getScoreData(subjectPerson.id, header.id)}</td>
+              <a if.bind="selectedRow != subjectPerson.id + ':' + header.id">${getScoreData(subjectPerson.id,
+                header.id)}</a>
+              <div if.bind="selectedRow == subjectPerson.id + ':' + header.id">
+                <input type="text" value.bind="scoreData.score">
+              </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

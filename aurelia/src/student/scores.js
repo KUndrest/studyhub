@@ -4,9 +4,18 @@ import environment from '../environment';
 
 export class score {
   subjectList = [];
-  scoreData = {};
+  scoreList=[]
 
   constructor() {
+    this.getScores();
+  }
+
+  getScores() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'scores')
+      .then(response => response.json())
+      .then(scores => this.scoreList = scores);
   }
 
   getSubjects() {

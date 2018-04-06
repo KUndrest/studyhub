@@ -7,8 +7,27 @@ export class student {
   subjectList = [];
   postList = [];
   scoreList = [];
+  headerList= []
 
   constructor() {
+    this.getScores();
+    this.getHeaders();
+  }
+
+  getScores() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'scores')
+      .then(response => response.json())
+      .then(scores => this.scoreList = scores);
+  }
+
+  getHeaders() {
+    let client = new HttpClient();
+
+    return client.fetch(environment.apiUrl + 'headers')
+      .then(response => response.json())
+      .then(header => this.headerList = header);
   }
 
   getSubjects() {
