@@ -51,11 +51,11 @@
             <div class="form-group">
               <form submit.delegate="addSubject()">
                 <p>
-                  <input class="form-control" type="text" name="subject" placeholder="Aine nimetus"
+                  <input class="form-control" type="text" name="subject" required placeholder="Aine nimetus"
                          value.bind="subjectData.subject">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Ainekood"
+                  <input class="form-control" type="text" name="code" required placeholder="Ainekood"
                          value.bind="subjectData.code">
                 </p>
                 <div class="modal-footer">
@@ -87,7 +87,7 @@
               <form submit.delegate="addPost()">
                 <div class="form-group">
                   <label for="formGroupInput">Pealkiri</label>
-                  <input type="text" class="form-control" id="formGroupInput" value.bind="postData.title">
+                  <input type="text" class="form-control" id="formGroupInput" required value.bind="postData.title">
                 </div>
                 <div class="form-group">
                   <label for="formGroupInput2">Kirjeldus</label>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="form-group">
                   <label for="dateSelect">Kuupäev </label>
-                  <input type="text" class="form-control" id="dateSelect" value.bind="postData.date">
+                  <input type="text" class="form-control" id="dateSelect" required value.bind="postData.date">
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-secondary button">Lisa</button>
@@ -127,7 +127,7 @@
             <div class="form-group">
               <form>
                 <p>
-                  <input class="form-control" type="text" name="subject" placeholder="Pealkiri"
+                  <input class="form-control" type="text" name="subject" required placeholder="Pealkiri"
                          value.bind="postData.title">
                 </p>
                 <p>
@@ -135,7 +135,7 @@
                          value.bind="postData.content">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Kuupäev" value.bind="postData.date">
+                  <input class="form-control" type="text" name="code" required placeholder="Kuupäev" value.bind="postData.date">
                 </p>
                 <div class="modal-footer">
                   <input type="button" class="btn btn-secondary button" click.delegate="savePostEdit()" value="Muuda">

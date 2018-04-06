@@ -109,14 +109,14 @@
               <form submit.delegate="addPost()">
                 <div class="form-group">
                   <label for="formGroupInput">Pealkiri</label>
-                  <input type="text" class="form-control" id="formGroupInput" value.bind="postData.title">
+                  <input type="text" class="form-control" id="formGroupInput" required value.bind="postData.title">
                 </div>
                 <div class="form-group">
                   <label for="formGroupInput2">Kirjeldus</label>
                   <input type="text" class="form-control" id="formGroupInput2" value.bind="postData.content">
                 </div>
                 <div class="form-group">
-                  <label for="dateSelect">Kuupäev </label>
+                  <label for="dateSelect">Kuupäev required </label>
                   <input type="text" class="form-control" id="dateSelect" value.bind="postData.date">
                 </div>
                 <div class="modal-footer">
@@ -141,7 +141,7 @@
             <div class="form-group">
               <form>
                 <p>
-                  <input class="form-control" type="text" name="subject" placeholder="Pealkiri"
+                  <input class="form-control" type="text" name="subject" required placeholder="Pealkiri"
                          value.bind="postData.title">
                 </p>
                 <p>
@@ -149,7 +149,7 @@
                          value.bind="postData.content">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Kuupäev" value.bind="postData.date">
+                  <input class="form-control" type="text" name="code" required placeholder="Kuupäev" value.bind="postData.date">
                 </p>
                 <div class="modal-footer">
                   <input type="button" class="btn btn-secondary button" click.delegate="savePostEdit()" value="Muuda">

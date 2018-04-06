@@ -65,8 +65,14 @@ export class score {
       .then(response => response.json())
       .then(data => {
         console.log('Server saatis' + data);
+        $('#newScore').modal('hide');
         this.getHeaders();
       });
+  }
+
+  newScore() {
+    this.headerData = {};
+    $('#newScore').modal();
   }
 
   getScoreData(personId, headerId) {

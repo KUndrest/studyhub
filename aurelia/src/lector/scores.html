@@ -51,11 +51,11 @@
             <div class="form-group">
               <form submit.delegate="addSubject()">
                 <p>
-                  <input class="form-control" type="text" name="subject" placeholder="Aine nimetus"
+                  <input class="form-control" type="text" name="subject" required placeholder="Aine nimetus"
                          value.bind="subjectData.subject">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Ainekood"
+                  <input class="form-control" type="text" name="code" required placeholder="Ainekood"
                          value.bind="subjectData.code">
                 </p>
                 <div class="modal-footer">
@@ -73,25 +73,25 @@
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th repeat.for="header of headerList" data-toggle="modal">${header.header}</th>
-          <th data-toggle="modal" data-target="#newScore">+</th>
-        </tr>
+          <tr>
+            <th>Name</th>
+            <th repeat.for="header of headerList" data-toggle="modal">${header.header}</th>
+            <th click.delegate="newScore()">+</th>
+          </tr>
         </thead>
         <tbody>
-        <tr repeat.for="subjectPerson of people">
-          <td>${subjectPerson.person.name}</td>
-          <td repeat.for="header of headerList" data-toggle="modal"
-              click.delegate="startEditingScore(subjectPerson, header)">
-            <a if.bind="selectedRow != subjectPerson.id + ':' + header.id">${getScoreData(subjectPerson.id,
-              header.id)}</a>
-            <div if.bind="selectedRow == subjectPerson.id + ':' + header.id">
-              <input type="text" value.bind="scoreData.score">
-              <button click.delegate="saveScoreData()">✓</button>
-            </div>
-          </td>
-        </tr>
+          <tr repeat.for="subjectPerson of people">
+            <td>${subjectPerson.person.name}</td>
+            <td repeat.for="header of headerList" data-toggle="modal"
+                click.delegate="startEditingScore(subjectPerson, header)">
+              <a if.bind="selectedRow != subjectPerson.id + ':' + header.id">${getScoreData(subjectPerson.id,
+                header.id)}</a>
+              <div if.bind="selectedRow == subjectPerson.id + ':' + header.id">
+                <input type="text" value.bind="scoreData.score">
+                <button click.delegate="saveScoreData()">✓</button>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -110,7 +110,7 @@
               <form submit.delegate="addHeader()">
                 <div>
                   <label>
-                    <input type="radio" name="choices"
+                    <input type="radio" name="choices" required
                            model.bind="true" checked.bind="headerData.isMark">
                     Hinne
                   </label>
@@ -121,7 +121,7 @@
                   </label>
                 </div>
                 <p>
-                  <input class="form-control" type="text" name="header" placeholder="Selgitus"
+                  <input class="form-control" type="text" name="header" required placeholder="Selgitus"
                          value.bind="headerData.header">
                 </p>
                 <div class="modal-footer">
