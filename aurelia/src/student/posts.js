@@ -3,8 +3,9 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
 
 export class post {
+  subjectData = {};
   subjectList = [];
-  postData = {}
+  postData = {};
   postList = [];
 
   constructor() {
@@ -75,11 +76,21 @@ export class post {
     });
   }
 
-  registerSubject() {
-    //loob seose tudengi ja valitud aine vahele, paneb modeli kinni ja kutsub getSubjecti uuesti
+  addSubject() {
+    let client = new HttpClient();
+    client.fetch(environment.apiUrl + 'subjectPersons/add', {
+      'method': 'POST',
+      'body': json(this.subjectData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Done');
+        $('#registerSubject').modal('hide');
+        this.getSubjects();
+      });
   }
 
-  subjectList() {
+  registerSubject() {
     this.subjectData = {};
     $('#registerSubject').modal();
   }

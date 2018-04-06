@@ -36,4 +36,23 @@ export class score {
       .then(header => this.headerList = header);
   }
   */
+
+  addSubject() {
+    let client = new HttpClient();
+    client.fetch(environment.apiUrl + 'subjectPersons/add', {
+      'method': 'POST',
+      'body': json(this.subjectData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Done');
+        $('#registerSubject').modal('hide');
+        this.getSubjects();
+      });
+  }
+
+  registerSubject() {
+    this.subjectData = {};
+    $('#registerSubject').modal();
+  }
 }

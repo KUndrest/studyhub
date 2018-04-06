@@ -20,7 +20,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
               <a repeat.for="subject of subjectList" class="dropdown-item">${subject.subject} ${subject.code}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" click.delegate="subjectList()">Registreeri ainele</a>
+              <a class="dropdown-item" click.delegate="registerSubject()">Registreeri ainele</a>
             </div>
           </div>
         </li>
@@ -48,7 +48,7 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <form submit.delegate="registerSubject()">
+              <form submit.delegate="addSubject()">
                 <p>
                   <input class="form-control" type="text" placeholder="Otsi..">
                 </p>
@@ -93,7 +93,7 @@
       </li>
     </ul>
     <div class="lisa-button">
-      <input type="button" class="btn btn-secondary button" click.delegate="newPost" value="Lisa uus tähtaeg">
+      <input type="button" class="btn btn-secondary button" click.delegate="newPost()" value="Lisa uus tähtaeg">
     </div>
     <div class="modal hide fade" id="newPost" role="dialog">
       <div class="modal-dialog modal-dialog-centered" role="document">
