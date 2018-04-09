@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
@@ -35,6 +36,6 @@ public class Header {
     private Person person;
 
     @JsonIgnoreProperties("header")
-    @OneToMany(mappedBy="header", fetch = EAGER)
+    @OneToMany(mappedBy="header", fetch = EAGER, cascade = ALL, orphanRemoval = true)
     private List<Score> scores;
 }

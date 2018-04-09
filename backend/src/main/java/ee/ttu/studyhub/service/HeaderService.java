@@ -33,4 +33,8 @@ public class HeaderService {
     public List<Header> findBySubject(Subject subject) {
         return headerRepository.findAllBySubject(subject);
     }
+
+    public void removeHeader(long headerId) {
+        headerRepository.delete(headerId);
+    }
 }

@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.service;
 
+import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.entity.Subject;
 import ee.ttu.studyhub.entity.SubjectPerson;
 import ee.ttu.studyhub.repository.SubjectPersonRepository;
@@ -37,6 +38,10 @@ public class SubjectPersonService {
     public List<SubjectPerson> getSubjectPersonsBySubjectId(Long subjectId) {
         Subject subject = subjectRepository.findOne(subjectId);
         return subjectPersonRepository.findAllBySubject(subject);
+    }
+
+    public List<SubjectPerson> getSubjectPersonsByPerson(Person person) {
+        return subjectPersonRepository.findAllByPerson(person);
     }
 }
 

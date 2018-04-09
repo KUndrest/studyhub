@@ -37,4 +37,8 @@ public class ScoreService {
     public void removeScore(long scoreId) {
         scoreRepository.delete(scoreId);
     }
+
+    public List<Score> findLatestScoresForSubjectPerson(List<SubjectPerson> subjectPersons) {
+        return scoreRepository.findTop5BySubjectPersonInOrderByCreatedDesc(subjectPersons);
+    }
 }

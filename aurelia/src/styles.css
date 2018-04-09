@@ -95,6 +95,6 @@ h2, h3{
 #subjectList:hover{
   color: #ccc;
 }
-#subjectListNav, #subjectList, #addSubjectNav {
+#subjectListNav, #subjectList, #addSubjectNav, #headerList {
   cursor: pointer;
 }

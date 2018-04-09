@@ -142,4 +142,34 @@ export class score {
     this.subjectData = {};
     $('#newSubject').modal();
   }
+
+  changeHeader(headerData) {
+    this.headerData = headerData;
+    $('#changeHeader').modal();
+  }
+
+  saveHeaderEdit() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'header', {
+      'method': 'POST',
+      'body': json(this.headerData)
+    })
+      .then(response => response.json())
+      .then(() => {
+        $('#changeHeader').modal('hide');
+        this.headerData = {};
+      });
+  }
+
+  removeHeader(id) {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'headers/' + id, {
+      'method': 'DELETE'
+    }).then(() => {
+      console.log('header deleted');
+      this.getHeaders();
+    });
+  }
 }

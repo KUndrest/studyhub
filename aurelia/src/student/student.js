@@ -1,25 +1,31 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
 import environment from '../environment';
+import {StudyHubService} from "../studyhub-service/studyhub-service";
+import {inject} from 'aurelia-framework';
 
+@inject(StudyHubService)
 export class student {
   postData = {};
   subjectList = [];
   postList = [];
   scoreList = [];
-  headerList= []
+  headerList= [];
 
-  constructor() {
+  studyHubService;
+
+  constructor(studyHubService) {
+    this.studyHubService = studyHubService;
     this.getScores();
     this.getHeaders();
   }
 
-  getScores() {
+  getScores(){
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'scores')
+    client.fetch(environment.apiUrl + 'latest-scores/' + this.studyHubService.activePersonId)
       .then(response => response.json())
-      .then(scores => this.scoreList = scores);
+      .then(scores => this.scores = scores);
   }
 
   getHeaders() {

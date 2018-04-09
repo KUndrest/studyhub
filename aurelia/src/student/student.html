@@ -177,15 +177,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td repeat.for="score of scoreList"> ${score.score}</td>
-              <td repeat.for="header of headerList">${getScoreData(subjectPerson.id, header.id)}</td>
-              <a if.bind="selectedRow != subjectPerson.id + ':' + header.id">${getScoreData(subjectPerson.id,
-                header.id)}</a>
-              <div if.bind="selectedRow == subjectPerson.id + ':' + header.id">
-                <input type="text" value.bind="scoreData.score">
-              </div>
-              </td>
+            <tr repeat.for="score of scores">
+              <td>${score.score}</td>
+              <td>${score.subject}</td>
+              <td>${score.header.header}</td>
             </tr>
             </tbody>
           </table>

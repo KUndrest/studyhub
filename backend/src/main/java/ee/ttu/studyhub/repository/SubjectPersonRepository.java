@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface SubjectPersonRepository extends JpaRepository<SubjectPerson, Long> {
     List<SubjectPerson> findAllBySubject(Subject subject);
+    List<SubjectPerson> findAllByPerson(Person person);
 }

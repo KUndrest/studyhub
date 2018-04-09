@@ -79,7 +79,7 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th repeat.for="header of headerList" data-toggle="modal">${header.header}</th>
+            <th repeat.for="header of headerList" data-toggle="modal" id="headerList" click.delegate="changeHeader(header)">${header.header}</th>
             <th click.delegate="newScore()">+</th>
           </tr>
         </thead>
@@ -138,6 +138,47 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="changeHeader" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Muuda peakirja</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <form>
+                <div>
+                  <label>
+                    <input type="radio" name="choices" required
+                           model.bind="true" checked.bind="headerData.isMark">
+                    Hinne
+                  </label>
+                  <label>
+                    <input type="radio" name="choices"
+                           model.bind="false" checked.bind="headerData.isMark">
+                    Punktid
+                  </label>
+                </div>
+                <p>
+                  <input class="form-control" type="text" name="header" required placeholder="Selgitus"
+                         value.bind="headerData.header">
+                </p>
+                <div class="modal-footer">
+                  <input type="button" class="btn btn-secondary button" click.delegate="saveHeaderEdit()" value="Muuda">
+                  <input type="button" class="btn btn-outline-dark" click.delegate="removeHeader(headerData.id)" value="Kustuta">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="footer">
     Andra Mataloja, Elina Meister, Kristin Undrest
