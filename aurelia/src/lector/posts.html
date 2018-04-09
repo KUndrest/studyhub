@@ -17,10 +17,10 @@
                     id="selectSubject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="Vali aine">
             </input>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a repeat.for="subject of subjectList" click.delegate="subjectSelected(subject)" class="dropdown-item">${subject.subject}
+              <a repeat.for="subject of subjectList" id="subjectListNav" click.delegate="subjectSelected(subject)" class="dropdown-item">${subject.subject}
                 ${subject.code}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" click.delegate="newSubject()">Lisa uus aine</a>
+              <a class="dropdown-item" id="addSubjectNav" click.delegate="newSubject()">Lisa uus aine</a>
             </div>
           </div>
         </li>

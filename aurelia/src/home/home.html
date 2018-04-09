@@ -48,7 +48,7 @@
                     </div>
                   </div>
                 </form>
-                <form  submit.delegate = "addPerson()" id="register-form" role="form" style="display: none" novalidate>
+                <form  submit.delegate = "addPerson()" id="register-form" name="form-name"  role="form" style="display: none">
                   <div class="form-group">
                     <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Ees- ja perenimi" required value.bind="personData.name">
                   </div>
@@ -71,7 +71,7 @@
                       <label for="lector">Õppejõud</label>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" required value.bind="personData.studentCode">
+                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" value.bind="personData.studentCode">
                   </div>
                   <div class="form-group">
                     <div class="row">

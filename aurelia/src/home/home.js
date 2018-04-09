@@ -20,7 +20,7 @@ export class home {
           console.log('Server saatis ' + data.name);
         });
 
-      if (personData.studentCode !== null) {
+      if (this.personData.studentCode !== undefined) {
         window.location.replace('http://localhost:9000/#/student');
       } else {
         window.location.replace('http://localhost:9000/#/lector');

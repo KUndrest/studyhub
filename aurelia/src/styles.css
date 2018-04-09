@@ -42,6 +42,9 @@ body{
   color: lightskyblue;
   font-size: 20px;
 }
+#login-form-link, #register-form-link {
+  cursor: pointer;
+}
 .forgot-password:hover,
 .forgot-password:focus {
   text-decoration: underline;
@@ -70,6 +73,7 @@ body{
 .icon-button{
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .footer{
   font-size: 10px;
@@ -90,4 +94,7 @@ h2, h3{
 }
 #subjectList:hover{
   color: #ccc;
+}
+#subjectListNav, #subjectList, #addSubjectNav {
+  cursor: pointer;
 }

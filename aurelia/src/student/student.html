@@ -18,9 +18,9 @@
               Ained
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a repeat.for="subject of subjectList" class="dropdown-item">${subject.subject} ${subject.code}</a>
+              <a repeat.for="subject of subjectList" id="subjectListNav" class="dropdown-item">${subject.subject} ${subject.code}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" click.delegate="registerSubject()">Registreeri ainele</a>
+              <a class="dropdown-item" id="addSubjectNav" click.delegate="registerSubject()">Registreeri ainele</a>
             </div>
           </div>
         </li>
