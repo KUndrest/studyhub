@@ -98,3 +98,12 @@ h2, h3{
 #subjectListNav, #subjectList, #addSubjectNav, #headerList {
   cursor: pointer;
 }
+#date{
+  color: #ff6666;
+}
+#colortitle{
+  color: #202f23;
+}
+#colorscore{
+  color: #ff6666;
+}

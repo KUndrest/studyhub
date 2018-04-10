@@ -77,7 +77,7 @@
           </h2>
         </div>
         <ul class="list-group">
-          <li repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
+          <li repeat.for="post of postList" class="list-group-item"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colortitle">${post.title}</div>
             <div class="btn-group edit-button" role="group">
               <input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
               <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
@@ -160,14 +160,7 @@
             Hinded
           </h2>
         </div>
-        <!--<ul class="list-group">
-          <li repeat.for="subject of subjectList" class="list-group-item"><b>${subject.subject}</b>
-            <ul class="list-group">
-              <li repeat.for="score of scoreList" if.bind="score.header.subject.id === subject.id" class="list-group-item"><b>${score.score}</b> ${score.header.header} </li>
-            </ul>
-          </li>
-        </ul>-->
-        <div class="table-responsive">
+        <div>
           <table class="table table-striped">
             <thead>
             <tr>
@@ -178,8 +171,8 @@
             </thead>
             <tbody>
             <tr repeat.for="score of scores">
-              <td>${score.score}</td>
-              <td>${score.subject}</td>
+              <td><b id="colorscore">${score.score}</b></td>
+              <td>${score.header.subject.subject}</td>
               <td>${score.header.header}</td>
             </tr>
             </tbody>
