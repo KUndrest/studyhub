@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+
 @Entity
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class Score {
     @GeneratedValue
     private Long id;
     private LocalDateTime created;
-
+    @Column(length =2)
     private Integer score;
 
     @PrePersist

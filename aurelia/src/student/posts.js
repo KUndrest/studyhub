@@ -54,7 +54,7 @@ export class post {
       'body': json(this.postData)
     })
       .then(response => response.json())
-      .then(data => {
+      .then(() => {
         $('#editPost').modal('hide');
         this.postData = {};
       });

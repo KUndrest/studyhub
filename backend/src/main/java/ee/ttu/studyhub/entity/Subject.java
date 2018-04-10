@@ -14,7 +14,9 @@ public class Subject {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(length =100)
     private String subject;
+    @Column(length =7, unique = true)
     private String code;
 
     @ManyToOne

@@ -112,15 +112,15 @@ export class score {
         this.getHeaders();
       });
   }
-  removeScore(id){
-      let client = new HttpClient();
+  removeScore(id) {
+    let client = new HttpClient();
 
-      client.fetch(environment.apiUrl + 'scores/' + id, {
-        'method': 'DELETE'
-      }).then(() => {
-        this.getHeaders();
-        this.selectedRow = '';
-      });
+    client.fetch(environment.apiUrl + 'scores/' + id, {
+      'method': 'DELETE'
+    }).then(() => {
+      this.getHeaders();
+      this.selectedRow = '';
+    });
   }
 
   addSubject() {
