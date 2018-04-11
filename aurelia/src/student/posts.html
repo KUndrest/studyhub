@@ -85,7 +85,7 @@
       </div>
     </div>
     <ul class="list-group">
-      <li repeat.for="post of postList" class="list-group-item"><b>${post.date}</b> ${post.title}
+      <li repeat.for="post of postList" class="list-group-item"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colortitle">${post.title}</div>
         <div class="btn-group edit-button" role="group">
           <input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
           <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
