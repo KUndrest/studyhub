@@ -80,7 +80,7 @@
           <tr>
             <th>Name</th>
             <th repeat.for="header of headerList" data-toggle="modal" id="headerList" click.delegate="changeHeader(header)">${header.header}</th>
-            <th click.delegate="newScore()">+</th>
+            <th id="newScorePlus" click.delegate="newScore()">+</th>
           </tr>
         </thead>
         <tbody>

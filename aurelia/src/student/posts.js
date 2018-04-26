@@ -60,6 +60,11 @@ export class post {
       });
   }
 
+  viewPost(postData) {
+    this.postData = postData;
+    $('#viewPost').modal();
+  }
+
   editPost(postData) {
     this.postData = postData;
     $('#editPost').modal();

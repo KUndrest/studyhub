@@ -95,15 +95,18 @@ h2, h3{
 #subjectList:hover{
   color: #ccc;
 }
-#subjectListNav, #subjectList, #addSubjectNav, #headerList {
+#subjectListNav, #subjectList, #addSubjectNav, #headerList, #newScorePlus, #colorTitle {
   cursor: pointer;
 }
-#date{
+#date, #colorScore{
   color: #ff6666;
 }
-#colortitle{
+#colorTitle{
   color: #202f23;
 }
-#colorscore{
-  color: #ff6666;
+#viewContent, #viewDate, #viewTitle {
+  color: #666666;
+  border: none;
+  width: 100%;
+  display: flex;
 }

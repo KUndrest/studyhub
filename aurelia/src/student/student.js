@@ -1,7 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'bootstrap';
 import environment from '../environment';
-import {StudyHubService} from "../studyhub-service/studyhub-service";
+import {StudyHubService} from '../studyhub-service/studyhub-service';
 import {inject} from 'aurelia-framework';
 
 @inject(StudyHubService)
@@ -10,7 +10,8 @@ export class student {
   subjectList = [];
   postList = [];
   scoreList = [];
-  headerList= [];
+  headerList = [];
+  searchString = '';
 
   studyHubService;
 
@@ -20,7 +21,7 @@ export class student {
     this.getHeaders();
   }
 
-  getScores(){
+  getScores() {
     let client = new HttpClient();
 
     client.fetch(environment.apiUrl + 'latest-scores/' + this.studyHubService.activePersonId)
@@ -85,6 +86,11 @@ export class student {
       });
   }
 
+  viewPost(postData) {
+    this.postData = postData;
+    $('#viewPost').modal();
+  }
+
   editPost(postData) {
     this.postData = postData;
     $('#editPost').modal();
@@ -101,23 +107,6 @@ export class student {
     });
   }
 
-  /*
-  getScores() {
-    let client = new HttpClient();
-
-    client.fetch(environment.apiUrl + 'scores')
-      .then(response => response.json())
-      .then(scores => this.scoreList = scores);
-  }
-  getHeaders() {
-    let client = new HttpClient();
-
-    return client.fetch(environment.apiUrl + 'headers')
-      .then(response => response.json())
-      .then(header => this.headerList = header);
-  }
-  */
-
   addSubject() {
     let client = new HttpClient();
     client.fetch(environment.apiUrl + 'subjectPersons/add', {
@@ -132,8 +121,17 @@ export class student {
       });
   }
 
+  /*
+  searchSubject() {
+    let client = new HttpClient();
+    client.fetch(environment.apiUrl + 'subjects/search/' + this.searchString)
+      .then(response => response.json())
+      .then(subjects => this.subjectList = subjects);
+  }
+
   registerSubject() {
-    this.subjectData = {};
+    document.getElementById('search').value = '';
     $('#registerSubject').modal();
   }
+  */
 }

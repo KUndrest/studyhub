@@ -111,13 +111,37 @@
       </div>
     </div>
     <ul class="list-group">
-      <li repeat.for="post of postList" class="list-group-item"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colortitle">${post.title}</div>
+      <li repeat.for="post of postList" class="list-group-item" id="postList"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colorTitle" click.delegate="viewPost(post)">${post.title}</div>
         <div class="btn-group edit-button" role="group">
           <input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
           <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
         </div>
       </li>
     </ul>
+    <div class="modal fade" id="viewPost" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Vaata tähtaega</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <form>
+                <label for="viewTitle">Pealkiri: </label>
+                <input type="text" id="viewTitle" value.bind="postData.title" readonly><br>
+                <label for="viewContent">Kirjeldus: </label>
+                <input type="text" id="viewContent" value.bind="postData.content" readonly><br>
+                <label for="viewDate">Kuupäev: </label>
+                <input type="text" id="viewDate" value.bind="postData.date" readonly><br><br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="editPost" role="dialog">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -131,15 +155,15 @@
             <div class="form-group">
               <form>
                 <p>
-                  <input class="form-control" type="text" name="subject" required placeholder="Pealkiri"
+                  <input class="form-control" type="text" name="title" required placeholder="Pealkiri"
                          value.bind="postData.title">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" placeholder="Kirjeldus"
+                  <input class="form-control" type="text" name="content" placeholder="Kirjeldus"
                          value.bind="postData.content">
                 </p>
                 <p>
-                  <input class="form-control" type="text" name="code" required placeholder="Kuupäev" value.bind="postData.date">
+                  <input class="form-control" type="text" name="date" required placeholder="Kuupäev" value.bind="postData.date">
                 </p>
                 <div class="modal-footer">
                   <input type="button" class="btn btn-secondary button" click.delegate="savePostEdit()" value="Muuda">
