@@ -30,4 +30,11 @@ public class SubjectController {
     public Subject getSubject(@PathVariable("id") long subjectId) {
         return subjectService.getSubjectById(subjectId);
     }
+
+    @DeleteMapping(value = "/subjects/{id}")
+    public List<Subject> removeSubject(@PathVariable("id") long subjectId) {
+        subjectService.removeSubject(subjectId);
+        return getAllSubjects();
+    }
+
 }

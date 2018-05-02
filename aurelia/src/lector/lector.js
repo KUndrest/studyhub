@@ -47,5 +47,34 @@ export class lector {
     this.studyHubService.selectedSubject = subject;
     window.location.href = "http://localhost:9000/#/lectorposts";
   }
+
+  editSubject(subjectData) {
+    this.subjectData = subjectData;
+    $('#editSubject').modal();
+  }
+
+  removeSubject(id) {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'subjects/' + id, {
+      'method': 'DELETE'
+    }).then(() => {
+      console.log('subject deleted');
+      this.activate();
+    });
+  }
+  saveSubjectEdit() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'subject', {
+      'method': 'POST',
+      'body': json(this.subjectData)
+    })
+      .then(response => response.json())
+      .then(() => {
+        $('#editSubject').modal('hide');
+        this.subjectData = {};
+      });
+  }
 }
 

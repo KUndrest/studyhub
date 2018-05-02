@@ -111,7 +111,7 @@
       </div>
     </div>
     <ul class="list-group">
-      <li repeat.for="post of postList" class="list-group-item" id="postList"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colorTitle" click.delegate="viewPost(post)">${post.title}</div>
+      <li repeat.for="post of postList" class="list-group-item" id="postList"> <a id="colorTitle" click.delegate="viewPost(post)"> <b id="date">${post.date} </b> <b>${post.subject.subject} </b> ${post.title}</a>
         <div class="btn-group edit-button" role="group">
           <input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
           <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
