@@ -49,7 +49,8 @@
             <div class="form-group">
               <form submit.delegate="addSubject()">
                 <p>
-                  <input class="form-control" type="text" placeholder="Otsi..">
+                  <input class="form-control" id="search" type="text" value.bind="searchString" placeholder="Otsisõna">
+                  <input class="btn btn-secondary button" type="button" click.delegate="searchSubject()" value="Otsi">
                 </p>
                 <ul class="list-group">
                   <li class="list-group-item" repeat.for="subject of subjectList">

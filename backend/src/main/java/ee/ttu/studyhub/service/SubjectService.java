@@ -32,4 +32,6 @@ public class SubjectService {
     public void removeSubject(long subjectId) {
         subjectRepository.delete(subjectId);
     }
+
+    public List<Subject> searchSubjectsByName(String searchString) { return subjectRepository.findBySubject(searchString); }
 }

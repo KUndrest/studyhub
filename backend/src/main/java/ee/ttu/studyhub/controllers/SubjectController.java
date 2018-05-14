@@ -36,5 +36,8 @@ public class SubjectController {
         subjectService.removeSubject(subjectId);
         return getAllSubjects();
     }
-
+    @RequestMapping(value = "/subjects/search/{searchString}", method=RequestMethod.GET)
+    public List<Subject> searchSubjects(@PathVariable("searchString") String searchString) {
+        return subjectService.searchSubjectsByName(searchString);
+    }
 }

@@ -9,7 +9,6 @@ export class student {
   postData = {};
   subjectList = [];
   postList = [];
-  scoreList = [];
   headerList = [];
   searchString = '';
 
@@ -121,7 +120,6 @@ export class student {
       });
   }
 
-  /*
   searchSubject() {
     let client = new HttpClient();
     client.fetch(environment.apiUrl + 'subjects/search/' + this.searchString)
@@ -133,5 +131,4 @@ export class student {
     document.getElementById('search').value = '';
     $('#registerSubject').modal();
   }
-  */
 }
