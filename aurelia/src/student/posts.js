@@ -7,6 +7,7 @@ export class post {
   subjectList = [];
   postData = {};
   postList = [];
+  searchString = '';
 
   constructor() {
   }
@@ -95,8 +96,15 @@ export class post {
       });
   }
 
+  searchSubject() {
+    let client = new HttpClient();
+    client.fetch(environment.apiUrl + 'subjects/search/' + this.searchString)
+      .then(response => response.json())
+      .then(subjects => this.subjectList = subjects);
+  }
+
   registerSubject() {
-    this.subjectData = {};
+    document.getElementById('search').value = '';
     $('#registerSubject').modal();
   }
 }

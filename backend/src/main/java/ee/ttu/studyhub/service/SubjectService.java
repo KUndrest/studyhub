@@ -36,4 +36,6 @@ public class SubjectService {
     public Subject updateSubject(Subject subject) {
         return subjectRepository.save(subject);
     }
+
+    public List<Subject> searchSubjectsByName(String searchString) { return subjectRepository.findBySubject(searchString); }
 }
