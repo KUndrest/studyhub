@@ -38,7 +38,7 @@ export class home {
       return true;
     } else {
       document.getElementById('studentCode').style.display = 'block';
-      return false;
+      return true;
     }
   }
 

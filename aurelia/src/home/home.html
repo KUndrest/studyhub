@@ -52,13 +52,13 @@
                   </div>
                   <div class="form-group">
                     <p>Vali staatus: &nbsp&nbsp&nbsp
-                      <input type="radio" name="status" id="student" value="student"  click.delegate="studentCheck()"/>
+                      <input type="radio" name="status" id="student" value="student"  click.delegate="studentCheck()" checked/>
                       <label for="student">Tudeng</label>&nbsp&nbsp
                       <input type="radio" name="status" id="lector" value="lector" click.delegate="studentCheck()"/>
                       <label for="lector">Õppejõud</label>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" value.bind="personData.studentCode">
+                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" value.bind="personData.studentCode" required>
                   </div>
                   <div class="form-group">
                     <div class="row">

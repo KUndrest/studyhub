@@ -27,6 +27,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.3')
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.10.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:'1.5.10.RELEASE'
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version:'0.7.0'
 	runtime('org.postgresql:postgresql')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

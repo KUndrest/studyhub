@@ -50,6 +50,7 @@ export class lector {
 
   editSubject(subjectData) {
     this.subjectData = subjectData;
+    console.log(this.subjectData);
     $('#editSubject').modal();
   }
 
@@ -66,7 +67,7 @@ export class lector {
   saveSubjectEdit() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'subject', {
+    client.fetch(environment.apiUrl + 'subject/' + this.subjectData.id, {
       'method': 'POST',
       'body': json(this.subjectData)
     })

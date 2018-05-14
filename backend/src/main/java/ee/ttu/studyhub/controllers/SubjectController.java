@@ -36,5 +36,16 @@ public class SubjectController {
         subjectService.removeSubject(subjectId);
         return getAllSubjects();
     }
+    @PostMapping(value = "/subject/{id}")
+    public Subject updateSubject(@PathVariable("id") long subjectId,
+                                 @RequestBody Subject newSubject) {
+        Subject subject = subjectService.getSubjectById(subjectId);
+        System.out.println(newSubject.getCode());
+        subject.setCode(newSubject.getCode());
+        subject.setSubject(newSubject.getSubject());
+        return subjectService.updateSubject(subject);
+    }
+
+
 
 }
