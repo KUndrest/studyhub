@@ -42,10 +42,12 @@ scripts
 *.iws
 *.iml
 *.ipr
+jspm_packages
 
 ### NetBeans ###
 nbproject/private/
 build/
+out/
 nbbuild/
 dist/
 nbdist/
