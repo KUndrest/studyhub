@@ -46,8 +46,6 @@ public class SubjectController {
         return subjectService.updateSubject(subject);
     }
 
-
-
     @RequestMapping(value = "/subjects/search/{searchString}", method=RequestMethod.GET)
     public List<Subject> searchSubjects(@PathVariable("searchString") String searchString) {
         return subjectService.searchSubjectsByName(searchString);
