@@ -30,7 +30,6 @@
               <i class="material-icons md-36 md-dark">account_circle</i>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">Minu andmed</a>
               <a class="dropdown-item" route-href="route: home">Logi välja</a>
             </div>
           </div>
@@ -75,22 +74,6 @@
         Hinded
       </h2>
     </div>
-    <div class="selection">
-      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        <button type="button" class="btn btn-secondary button">Aeg</button>
-        <div class="btn-group" role="group">
-          <button click.delegate="getSubjects()" id="btnGroupDrop1" type="button"
-                  class="btn btn-secondary button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">
-            Aine
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a repeat.for="subject of subjectList" class="dropdown-item">${subject.subject} ${subject.code}</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <ul class="list-group">
       <li repeat.for="subject of subjectList" class="list-group-item"><b>${subject.subject}</b>
         <ul class="list-group">
@@ -98,8 +81,6 @@
         </ul>
       </li>
     </ul>
-
-
   </div>
   <div class="footer">
     Andra Mataloja, Elina Meister, Kristin Undrest
