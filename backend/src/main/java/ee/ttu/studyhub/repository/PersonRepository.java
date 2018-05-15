@@ -10,4 +10,5 @@ import java.util.List;
 public interface PersonRepository extends CrudRepository<Person, Long> {
     @Override
     List<Person> findAll();
+    Person findByEmailAndPassword(String email, String password);
 }

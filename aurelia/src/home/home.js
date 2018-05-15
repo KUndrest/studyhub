@@ -1,12 +1,17 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
+import {StudyHubService} from "../studyhub-service/studyhub-service";
+import {inject} from 'aurelia-framework';
 
+@inject(StudyHubService)
 export class home {
-  constructor() {
+  constructor(study) {
+    this.study = study;
   }
 
   personData = {};
+  study;
 
   addPerson() {
     let client = new HttpClient();
@@ -57,5 +62,23 @@ export class home {
       $(this).addClass('active');
       e.preventDefault();
     });
+  }
+
+  login() {
+    let client = new HttpClient();
+
+    client.fetch(environment.apiUrl + 'login', {
+      'method': 'POST',
+      'body': json(this.personData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.study.personData = data;
+        if (data.studentCode) {
+          window.location.replace('http://localhost:9000/#/student');
+        } else {
+          window.location.replace('http://localhost:9000/#/lector');
+        }
+      });
   }
 }

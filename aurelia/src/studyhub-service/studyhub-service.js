@@ -1,6 +1,10 @@
 export class StudyHubService {
   _selectedSubject;
-  activePersonId = 38; // Tulevikus peaks olema siin sisselogitud kasutaja id
+  personData = {};
+
+  get activePersonId() {
+    return this.personData.id;
+  }
 
   get selectedSubject() {
     if (!this._selectedSubject) {

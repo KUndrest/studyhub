@@ -28,4 +28,8 @@ public class PersonService {
     public Person getPersonById(long personId) {
         return personRepository.findOne(personId);
     }
+
+    public Person loginPerson(String email, String password) {
+        return personRepository.findByEmailAndPassword(email, password);
+    }
 }
