@@ -8,23 +8,20 @@ import ee.ttu.studyhub.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
 public class HeaderController {
 
-    @PersistenceContext
-    private EntityManager em;
     private HeaderService headerService;
 
-    @Autowired
-    private SubjectService subjectService;
+    private final SubjectService subjectService;
 
-    public HeaderController(HeaderService headerService) {
+    @Autowired
+    public HeaderController(HeaderService headerService, SubjectService subjectService) {
         this.headerService = headerService;
+        this.subjectService = subjectService;
     }
 
     @RequestMapping(value="/headers/add", method= RequestMethod.POST,
@@ -66,7 +63,7 @@ public class HeaderController {
         header.setSubject(headerDTO.getSubject());
         header.setPerson(headerDTO.getPerson());
         header.setId(headerDTO.getId());
-        return em.merge(header);
+        return headerService.saveHeader(header);
     }
 }
 

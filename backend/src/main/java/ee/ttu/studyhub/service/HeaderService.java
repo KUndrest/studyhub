@@ -37,4 +37,8 @@ public class HeaderService {
     public void removeHeader(long headerId) {
         headerRepository.delete(headerId);
     }
+
+    public Header saveHeader(Header header) {
+        return headerRepository.save(header);
+    }
 }
