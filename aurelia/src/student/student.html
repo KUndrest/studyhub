@@ -79,8 +79,8 @@
         <ul class="list-group">
           <li repeat.for="post of postList" class="list-group-item"><b id="date">${post.date} </b> <b>${post.subject.subject} </b> <div id="colorTitle" click.delegate="viewPost(post)">${post.title}</div>
             <div class="btn-group edit-button" role="group">
-              <input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
-              <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">
+              <!--<input type="button" class="btn btn-outline-dark" click.delegate="editPost(post)" value="Muuda">
+              <input type="button" class="btn btn-outline-dark" click.delegate="removePost(post.id)" value="Kustuta">-->
             </div>
           </li>
         </ul>
@@ -142,7 +142,7 @@
           </div>
         </div>
         <div class="lisa-button">
-          <input type="button" class="btn btn-secondary button" click.delegate="newPost()" value="Lisa uus tähtaeg">
+          <!--<input type="button" class="btn btn-secondary button" click.delegate="newPost()" value="Lisa uus tähtaeg">-->
         </div>
         <div class="modal fade" id="newPost" role="dialog">
           <div class="modal-dialog modal-dialog-centered" role="document">

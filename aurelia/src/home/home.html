@@ -32,6 +32,7 @@
                       <div class="col-sm-6 col-sm-offset-4" style="margin: auto">
                         <button click.delegate="login()" name="login-submit" id="login-submit" class="form-control btn btn-outline-dark">Logi sisse</button>
                       </div>
+                      <div class="loginPasswordMatch" id="passwordLoginMatch">
                     </div>
                   </div>
                 </form>
@@ -58,7 +59,7 @@
                       <label for="lector">Õppejõud</label>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="studentCode" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" value.bind="personData.studentCode" required>
+                    <input type="text" id="studentCode" class="form-control" placeholder="Martikli number" minlength="10" maxlength="10" value.bind="personData.studentCode" required>
                   </div>
                   <div class="form-group">
                     <div class="row">

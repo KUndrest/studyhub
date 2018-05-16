@@ -1,9 +1,6 @@
 package ee.ttu.studyhub.controllers;
 
-import ee.ttu.studyhub.entity.Person;
-import ee.ttu.studyhub.entity.Score;
-import ee.ttu.studyhub.entity.ScoreDTO;
-import ee.ttu.studyhub.entity.SubjectPerson;
+import ee.ttu.studyhub.entity.*;
 import ee.ttu.studyhub.service.PersonService;
 import ee.ttu.studyhub.service.ScoreService;
 import ee.ttu.studyhub.service.SubjectPersonService;

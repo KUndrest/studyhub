@@ -1,5 +1,6 @@
 package ee.ttu.studyhub.service;
 
+import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.entity.Post;
 import ee.ttu.studyhub.entity.Subject;
 import ee.ttu.studyhub.repository.PostRepository;
@@ -38,5 +39,9 @@ public class PostService {
 
     public List<Post> findBySubject(Subject subject) {
         return postRepository.findAllBySubject(subject);
+    }
+
+    public List<Post>  findAllBySubjectPerson (Person person) {
+        return postRepository.findBySubjectPerson(person);
     }
 }

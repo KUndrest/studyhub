@@ -1,9 +1,22 @@
 export class StudyHubService {
   _selectedSubject;
-  personData = {};
+  _personData;
 
   get activePersonId() {
     return this.personData.id;
+  }
+
+  set personData(personData) {
+    window.localStorage.setItem('personData', JSON.stringify(personData));
+    this._personData = personData;
+  }
+
+  get personData() {
+    if (!this._personData) {
+      this._personData = JSON.parse(window.localStorage.getItem('personData') || '{}');
+    }
+
+    return this._personData;
   }
 
   get selectedSubject() {

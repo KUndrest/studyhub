@@ -18,7 +18,7 @@ export class lector {
   activate() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'subjects')
+    client.fetch(environment.apiUrl + 'lector-subjects/' + this.studyHubService.activePersonId)
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
@@ -39,7 +39,11 @@ export class lector {
   }
 
   newSubject() {
-    this.subjectData = {};
+    this.subjectData = {
+      person: {
+        id: this.studyHubService.activePersonId
+      }
+    };
     $('#newSubject').modal();
   }
 

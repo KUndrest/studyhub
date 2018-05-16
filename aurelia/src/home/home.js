@@ -22,14 +22,13 @@ export class home {
       })
         .then(response => response.json())
         .then(data => {
-          console.log('Server saatis ' + data.name);
+          this.study.personData = data;
+          if (data.studentCode) {
+            window.location.replace('http://localhost:9000/#/student');
+          } else if(!data.studentCode){
+            window.location.replace('http://localhost:9000/#/lector');
+          }
         });
-
-      if (this.personData.studentCode !== undefined) {
-        window.location.replace('http://localhost:9000/#/student');
-      } else {
-        window.location.replace('http://localhost:9000/#/lector');
-      }
     } else {
       $('input#passwordRegister').addClass('is-invalid');
       $('input#confirm-password').addClass('is-invalid');
@@ -39,10 +38,11 @@ export class home {
 
   studentCheck() {
     if (!document.getElementById('student').checked) {
-      document.getElementById('studentCode').style.display = 'none';
+      document.getElementById('studentCode').disabled = true;
+      document.getElementById('studentCode').value = '';
       return true;
     } else {
-      document.getElementById('studentCode').style.display = 'block';
+      document.getElementById('studentCode').disabled = false;
       return true;
     }
   }
@@ -76,8 +76,10 @@ export class home {
         this.study.personData = data;
         if (data.studentCode) {
           window.location.replace('http://localhost:9000/#/student');
-        } else {
+        } else if(!data.studentCode){
           window.location.replace('http://localhost:9000/#/lector');
+        } else{
+          $('.loginPasswordMatch').html("User and password don't match");
         }
       });
   }

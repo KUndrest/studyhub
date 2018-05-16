@@ -1,7 +1,10 @@
 package ee.ttu.studyhub.controllers;
 
-import ee.ttu.studyhub.service.SubjectService;
+import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.entity.Subject;
+import ee.ttu.studyhub.service.PersonService;
+import ee.ttu.studyhub.service.SubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +13,8 @@ import java.util.List;
 public class SubjectController {
 
     private SubjectService subjectService;
+    @Autowired
+    private PersonService personService;
 
     public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;
@@ -49,5 +54,17 @@ public class SubjectController {
     @RequestMapping(value = "/subjects/search/{searchString}", method=RequestMethod.GET)
     public List<Subject> searchSubjects(@PathVariable("searchString") String searchString) {
         return subjectService.searchSubjectsByName(searchString);
+    }
+
+    @GetMapping(value = "/person-subjects/{id}")
+    public List<Subject> getPersonSubjects(@PathVariable("id") long personId) {
+        Person person = personService.getPersonById(personId);
+        return subjectService.findAllBySubjectPerson(person);
+    }
+
+    @GetMapping(value = "/lector-subjects/{id}")
+    public List<Subject> getLectorSubjects(@PathVariable("id") long personId) {
+        Person person = personService.getPersonById(personId);
+        return subjectService.findAllByPerson(person);
     }
 }

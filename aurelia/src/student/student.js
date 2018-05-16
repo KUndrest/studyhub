@@ -39,7 +39,7 @@ export class student {
   getSubjects() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'subjects')
+    client.fetch(environment.apiUrl + 'subjects/' + this.studyHubService.activePersonId)
       .then(response => response.json())
       .then(subjects => this.subjectList = subjects);
   }
@@ -47,7 +47,7 @@ export class student {
   activate() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'posts')
+    client.fetch(environment.apiUrl + 'person-posts/'  + this.studyHubService.activePersonId)
       .then(response => response.json())
       .then(posts => this.postList = posts);
   }
@@ -68,7 +68,9 @@ export class student {
   }
 
   newPost() {
-    this.postData = {};
+    this.postData = {
+      person: {id: this.studyHubService.activePersonId}
+    };
     $('#newPost').modal();
   }
 

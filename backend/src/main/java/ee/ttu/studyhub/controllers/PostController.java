@@ -1,9 +1,12 @@
 package ee.ttu.studyhub.controllers;
 
+import ee.ttu.studyhub.entity.Person;
 import ee.ttu.studyhub.entity.Post;
 import ee.ttu.studyhub.entity.PostDTO;
 import ee.ttu.studyhub.entity.Subject;
+import ee.ttu.studyhub.service.PersonService;
 import ee.ttu.studyhub.service.PostService;
+import ee.ttu.studyhub.service.SubjectPersonService;
 import ee.ttu.studyhub.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +26,12 @@ public class PostController {
 
     @Autowired
     private SubjectService subjectService;
+
+    @Autowired
+    private SubjectPersonService subjectPersonService;
+
+    @Autowired
+    private PersonService personService;
 
     public PostController(PostService postService) {
         this.postService = postService;
@@ -51,6 +60,12 @@ public class PostController {
     public List<Post> getHeaders(@PathVariable("id") long subjectId) {
         Subject subject = subjectService.getSubjectById(subjectId);
         return postService.findBySubject(subject);
+    }
+
+    @GetMapping(value = "/person-posts/{id}")
+    public List<Post> getPersonPosts(@PathVariable("id") long personId) {
+        Person person = personService.getPersonById(personId);
+        return postService.findAllBySubjectPerson(person);
     }
 
     @DeleteMapping(value = "/posts/{id}")

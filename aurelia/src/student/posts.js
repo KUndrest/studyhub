@@ -1,15 +1,20 @@
 import 'bootstrap';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import environment from '../environment';
+import {StudyHubService} from "../studyhub-service/studyhub-service";
+import {inject} from 'aurelia-framework';
 
+@inject(StudyHubService)
 export class post {
   subjectData = {};
   subjectList = [];
   postData = {};
   postList = [];
   searchString = '';
+  studyHubService;
 
-  constructor() {
+  constructor(studyHubService) {
+    this.studyHubService = studyHubService;
   }
 
   getSubjects() {
@@ -23,7 +28,7 @@ export class post {
   activate() {
     let client = new HttpClient();
 
-    client.fetch(environment.apiUrl + 'posts')
+    client.fetch(environment.apiUrl + 'person-posts/' + this.studyHubService.activePersonId)
       .then(response => response.json())
       .then(posts => this.postList = posts);
   }
@@ -44,6 +49,7 @@ export class post {
 
   newPost() {
     this.postData = {};
+    person: {id: this.studyHubService.activePersonId}
     $('#newPost').modal();
   }
 
